@@ -25,7 +25,8 @@ class WebsiteController extends Controller
             ]);
         }
 
-        return view("layouts.website");
+        //return view("layouts.website");
+        return redirect("/login");
     }
 
 }

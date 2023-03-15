@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
             <div class="container">
 
-                <a class="navbar-brand" href="/">Vainkho Admin</a>
+                <a class="navbar-brand" href="/">{{ config('app.name', 'Laravel') }}</a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -50,7 +50,7 @@
 
         <div class="container-fluid bg-dark text-light py-3">
             <div class="container">
-            <span class="para" style="color: #999;" >Copyright &copy; {{ date('Y') }} <a href="/" class="text-light">VAINKHO ECOMMERCE PVT. LTD.</a> All Rights Reserved.</span>
+            <span class="para" style="color: #999;" >Copyright &copy; {{ date('Y') }} <a href="/" class="text-light text-uppercase">{{ config('app.name', 'Laravel') }}</a> All Rights Reserved.</span>
             </div>
         </div>
     </div>

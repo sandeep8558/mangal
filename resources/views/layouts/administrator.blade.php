@@ -25,13 +25,6 @@
         </div>
 
         <ul class="list-group mb-5 rounded-0 accordion p-1" id="accordionExample">
-
-            <!-- <li class="list-group-item p-0 bg-light mb-1 border-0 shadow-none">
-                <a class="btn btn-block btn-full text-left shadow-none p-3 rounded-big  {{ (request()->is('administrator')) ? 'btn-dark' : 'btn-outline-dark' }}" href="/administrator">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    Dashboard
-                </a>
-            </li> -->
                 
 
             <div class="accordion" id="accordionExample">
@@ -41,6 +34,15 @@
                         <a href="/administrator" class="btn accordion-button collapsed no-caret {{ (request()->is('administrator')) ? 'bg-primary text-light' : 'bg-light text-dark' }}" data-bs-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
                             <i class="fas fa-fw fa-tachometer-alt mr-2"></i>
                             Dashboard
+                        </a>
+                    </h2>
+                </div>
+
+                <div class="accordion-item bg-primary">
+                    <h2 class="accordion-header" id="headingOne">
+                        <a href="/administrator/settings" class="btn accordion-button collapsed no-caret {{ (request()->is('administrator/settings')) ? 'bg-primary text-light' : 'bg-light text-dark' }}" data-bs-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
+                            <i class="fas fa-fw fa-tachometer-alt mr-2"></i>
+                            Settings
                         </a>
                     </h2>
                 </div>
@@ -96,9 +98,9 @@
         <div class="container-fluid">
             <a class="navbar-brand text-uppercase" id="handel" href="javascript:void(0);"><i class="fas fa-bars fa-lg fa-fw"></i> {{Auth::user()->name}}</a>
             <ul class="navbar-nav">
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="/">Website</a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
