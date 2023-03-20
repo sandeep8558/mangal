@@ -17,11 +17,6 @@ class WebsiteController extends Controller
                 "email" => "sandeep198558@yahoo.com",
                 "password" => Hash::make("123456789"),
                 "role" => "Administrator",
-                "address" => "Plot no 65, B101, Shree Satyam CHS, Sai Section, Hutatma Chowk",
-                "city" => "Ambernath East",
-                "pincode" => "421501",
-                "state" => "Maharashtra",
-                "country" => "India"
             ]);
         }
 

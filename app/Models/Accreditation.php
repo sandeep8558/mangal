@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Accreditation extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'display',
+        'title',
+        'description',
+        'media',
+    ];
 }

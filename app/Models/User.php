@@ -32,13 +32,6 @@ class User extends Authenticatable
         'api_token',
         'token_expire_at',
         'otp',
-        'commission',
-        'dp',
-        'address',
-        'city',
-        'pincode',
-        'state',
-        'country',
     ];
 
     /**

@@ -24,13 +24,6 @@ class CreateUsersTable extends Migration
             $table->set('role', ['Customer', 'Administrator'])->default('Customer');
             $table->set('status', ['Active', 'Non-Active', 'Block', 'Hold', 'Discontinue'])->default('Active');
 
-            $table->string('address')->nullable();
-            $table->string('city')->nullable();
-            $table->string('pincode')->nullable();
-            $table->string('state')->nullable();
-            $table->string('country')->nullable();
-            $table->text('dp')->nullable();
-
             $table->string('api_token', 80)->unique()->nullable();
             $table->timestamp('token_expire_at')->nullable();
             $table->string('otp', 10)->nullable();

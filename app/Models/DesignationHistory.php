@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class DesignationHistory extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'staff_id',
+        'designation_id',
+        'effective_from',
+        'effective_till',
+        'remark',
+    ];
+    
 }

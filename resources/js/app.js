@@ -39,15 +39,100 @@ $(document).ready(()=>{
         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
     });
 
+    
+
 });
+
+
+
+
+
+
+
+
+
+
 
 
 window.Vue = require('vue');
 import vueDebounce from 'vue-debounce'
 Vue.use(vueDebounce)
 
+import AdminBootstrapAccreditation from './components/administrator/bootstrap/Accreditation.vue';
+import AdminBootstrapBranches from './components/administrator/bootstrap/Branches.vue';
+import AdminBootstrapSalaryGroup from './components/administrator/bootstrap/SalaryGroup.vue';
+import AdminBootstrapDesignation from './components/administrator/bootstrap/Designation.vue';
+import AdminBootstrapBranchAssets from './components/administrator/bootstrap/BranchAssets.vue';
+import AdminBootstrapClassroomSlots from './components/administrator/bootstrap/ClassroomSlots.vue';
+import AdminBootstrapClassroom from './components/administrator/bootstrap/Classroom.vue';
+
+import AdminCourseBootstrapRelatedDocuments from './components/administrator/courses_bootstrap/RelatedDocuments.vue';
+import AdminCourseBootstrapCourseCategory from './components/administrator/courses_bootstrap/CourseCategory.vue';
+import AdminCourseBootstrapCourses from './components/administrator/courses_bootstrap/Courses.vue';
+import AdminCourseBootstrapCourseSubjects from './components/administrator/courses_bootstrap/CourseSubjects.vue';
+import AdminCourseBootstrapCourseFees from './components/administrator/courses_bootstrap/CourseFees.vue';
+import AdminCourseBootstrapCourseDocuments from './components/administrator/courses_bootstrap/CourseDocuments.vue';
+import AdminCourseBootstrapCourseSections from './components/administrator/courses_bootstrap/CourseSections.vue';
+import AdminCourseBootstrapCourseMaterial from './components/administrator/courses_bootstrap/CourseMaterial.vue';
+
+import AdminEmployeeManagerStaffManager from './components/administrator/employee_manager/StaffManager.vue';
+import AdminEmployeeManagerStaffDocuments from './components/administrator/employee_manager/StaffDocuments.vue';
+import AdminEmployeeManagerDesignationHistory from './components/administrator/employee_manager/DesignationHistory.vue';
+import AdminEmployeeManagerBranchHistory from './components/administrator/employee_manager/BranchHistory.vue';
+import AdminEmployeeManagerSalaryHistory from './components/administrator/employee_manager/SalaryHistory.vue';
+import AdminEmployeeManagerReviews from './components/administrator/employee_manager/Reviews.vue';
+
+import AdminStudentManagerStudents from './components/administrator/student_manager/Students.vue';
+import AdminStudentManagerStudentEducation from './components/administrator/student_manager/StudentEducation.vue';
+import AdminStudentManagerStudentQualification from './components/administrator/student_manager/StudentQualification.vue';
+import AdminStudentManagerStudentEmployment from './components/administrator/student_manager/StudentEmployment.vue';
+import AdminStudentManagerStudentCourses from './components/administrator/student_manager/StudentCourses.vue';
+import AdminStudentManagerStudentCourseDocuments from './components/administrator/student_manager/StudentCourseDocuments.vue';
+
+import AdminBatchManagerBatches from './components/administrator/batch_manager/Batches.vue';
+import AdminBatchManagerBatchFaculties from './components/administrator/batch_manager/BatchFaculties.vue';
+import AdminBatchManagerBatchStudents from './components/administrator/batch_manager/BatchStudents.vue';
+import AdminBatchManagerBatchSessions from './components/administrator/batch_manager/BatchSessions.vue';
+import AdminBatchManagerSessionAttendance from './components/administrator/batch_manager/SessionAttendance.vue';
+
 const app = new Vue({
     el: '#app',
     components: {
+        AdminBootstrapAccreditation,
+        AdminBootstrapBranches,
+        AdminBootstrapSalaryGroup,
+        AdminBootstrapDesignation,
+        AdminBootstrapBranchAssets,
+        AdminBootstrapClassroomSlots,
+        AdminBootstrapClassroom,
+
+        AdminCourseBootstrapRelatedDocuments,
+        AdminCourseBootstrapCourseCategory,
+        AdminCourseBootstrapCourses,
+        AdminCourseBootstrapCourseSubjects,
+        AdminCourseBootstrapCourseFees,
+        AdminCourseBootstrapCourseDocuments,
+        AdminCourseBootstrapCourseSections,
+        AdminCourseBootstrapCourseMaterial,
+
+        AdminEmployeeManagerStaffManager,
+        AdminEmployeeManagerStaffDocuments,
+        AdminEmployeeManagerDesignationHistory,
+        AdminEmployeeManagerBranchHistory,
+        AdminEmployeeManagerSalaryHistory,
+        AdminEmployeeManagerReviews,
+
+        AdminStudentManagerStudents,
+        AdminStudentManagerStudentEducation,
+        AdminStudentManagerStudentQualification,
+        AdminStudentManagerStudentEmployment,
+        AdminStudentManagerStudentCourses,
+        AdminStudentManagerStudentCourseDocuments,
+
+        AdminBatchManagerBatches,
+        AdminBatchManagerBatchFaculties,
+        AdminBatchManagerBatchStudents,
+        AdminBatchManagerBatchSessions,
+        AdminBatchManagerSessionAttendance,
     }
 });

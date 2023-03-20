@@ -74,6 +74,13 @@
                     <span v-if="elm.isError" class="disable-select small text-capitalize text-danger">{{elm.error}}</span>
                 </template>
 
+                <template v-if="elm.type=='time'">
+                    <label class="disable-select text-capitalize" :for="elm.name">{{elm.label}}</label>
+                    <input class="form-control" type="time" :name="elm.name" :id="elm.name" v-model="elm.value" @change="removeError(index); sendEvent($event)" :readonly="elm.readonly">
+                    <span v-if="!elm.isError" class="disable-select small text-capitalize text-muted">{{elm.hint}}</span>
+                    <span v-if="elm.isError" class="disable-select small text-capitalize text-danger">{{elm.error}}</span>
+                </template>
+
                 <template v-if="elm.type=='password'">
                     <label class="disable-select text-capitalize" :for="elm.name">{{elm.label}}</label>
                     <input class="form-control" type="password" :name="elm.name" :id="elm.name" v-model="elm.value" @change="removeError(index); sendEvent($event)" :readonly="elm.readonly">
@@ -138,9 +145,11 @@
     <form action="" @submit.prevent="submitSearch">
         <div class="row">
 
-            <div class="col-12 mb-2">
+            <!-- <div class="col-12 mb-2">
                 <h5 class="text-uppercase">Search Options</h5>
-            </div>
+            </div> -->
+
+            
 
             <div v-if="formData.settings.isDateSearch" class="col-12">
                 <div class="input-group mb-3">
@@ -149,7 +158,20 @@
                 </div>
             </div>
 
-            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+            <div class="col-auto text-right">
+                <button class="btn">#{{data.total}}</button>
+                <select @change="getData()" class="form-control d-inline shadow-none" style="width:85px;" name="results" id="results" v-model="r">
+                    <option value="1">1</option>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                </select>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-12 col-lg-5">
                 <div class="input-group mb-3">
                     <select class="form-control shadow-none" name="search_column" id="search_column" v-model="key">
                         <option value="">Select Search Column</option>
@@ -165,7 +187,7 @@
                 </div>
             </div>
 
-            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+            <div class="col-12 col-sm-12 col-md-12 col-lg">
                 <div class="input-group mb-3">
                     <input class="form-control shadow-none" type="text" name="search_string" id="search_string" v-model="val">
                     <div class="input-group-append">
@@ -181,8 +203,8 @@
 
 <div v-if="formData.settings.isResults" class="container-fluid mb-2">
     <div class="row">
-        <div class="col-6"><button v-if="formData.settings.isExport" class="btn btn-success mb-1" @click="exportTableToExcel('crud-table')">Exoprt to Excel</button></div>
-        <div class="col-6 text-right">
+        <!-- <div class="col-6"><button v-if="formData.settings.isExport" class="btn btn-success mb-1" @click="exportTableToExcel('crud-table')">Exoprt to Excel</button></div> -->
+        <!-- <div class="col-6 text-right">
             <button class="btn">#{{data.total}}</button>
             <select @change="getData()" class="form-control d-inline shadow-none" style="width:85px;" name="results" id="results" v-model="r">
                 <option value="1">1</option>
@@ -193,7 +215,7 @@
                 <option value="500">500</option>
                 <option value="1000">1000</option>
             </select>
-        </div>
+        </div> -->
     </div>
 </div>
 
@@ -266,7 +288,8 @@
 
 
 <div v-if="formData.settings.isLoadMore" class="container-fluid mb-5">
-    <button class="btn btn-block btn-success mt-3" @click="getData(data.current_page * 1 + 1)" :disabled="this.data.current_page == this.data.last_page">Load More</button>
+    <button class="btn btn-success mt-3" @click="getData(data.current_page * 1 + 1)" :disabled="this.data.current_page == this.data.last_page">Load More</button>
+    <button v-if="formData.settings.isExport" class="btn btn-success mt-3 float-right" @click="exportTableToExcel('crud-table')">Exoprt to Excel</button>
 </div>
 
 

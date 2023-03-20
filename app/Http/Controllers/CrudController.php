@@ -239,12 +239,20 @@ class CrudController extends Controller
     }
 
     public function showall(Request $request){
-        $request;
         $key = $request->key;
         $val = $request->val;
+
+        $wherekey = $request->wherekey;
+        $whereval = $request->whereval;
+
         $model_name = '\\App\\Models\\'.$request->model;
         $model = new $model_name;
-        return $query = $model::get([$key . ' as key', 'id as value']);
+        if($wherekey=="" || $wherekey == null){
+            return $query = $model::get([$key . ' as key', 'id as value']);
+        } else {
+            return $query = $model::where($wherekey, $whereval)->get([$key . ' as key', 'id as value']);
+        }
+        
     }
 
     public function getuser(){
