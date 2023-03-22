@@ -58,8 +58,9 @@ Route::group(['middleware'=>['auth', 'administrator']], function(){
     Route::get('/administrator/batch_manager/batches', [App\Http\Controllers\BatchManagerController::class, 'batches']);
     Route::get('/administrator/batch_manager/batch_faculties', [App\Http\Controllers\BatchManagerController::class, 'batch_faculties']);
     Route::get('/administrator/batch_manager/batch_students', [App\Http\Controllers\BatchManagerController::class, 'batch_students']);
-    Route::get('/administrator/batch_manager/batch_sessions', [App\Http\Controllers\BatchManagerController::class, 'batch_sessions']);
-    Route::get('/administrator/batch_manager/session_attendance', [App\Http\Controllers\BatchManagerController::class, 'session_attendance']);
+
+    Route::get('/administrator/exam_result_manager/exam', [App\Http\Controllers\ExamResultController::class, 'exam']);
+    Route::get('/administrator/exam_result_manager/result', [App\Http\Controllers\ExamResultController::class, 'result']);
 
 });
 

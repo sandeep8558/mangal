@@ -5185,6 +5185,264 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/administrator/batch_manager/BatchFaculties.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/administrator/batch_manager/BatchFaculties.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _form_NewForm_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../form/NewForm.vue */ "./resources/js/components/form/NewForm.vue");
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['id', 'batches', 'faculties'],
+  components: {
+    LitsForm: _form_NewForm_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      formData: {
+        id: 0,
+        title: "BatchFaculty Manager",
+        formName: "BatchFacultyForm",
+        model: "BatchFaculty",
+        action: "CRUD",
+
+        /* CRUD | EDIT | SEARCH */
+        method: "",
+        custom_query: [],
+        "with": [],
+        mail: {
+          name: "Sandeep Rathod",
+          to: "sandeep198558@yahoo.com",
+          subject: "Email From Users of Zataks"
+        },
+        settings: {
+          isTitle: true,
+          isReset: true,
+          isSubmit: true,
+          isDateSearch: false,
+          isExport: true,
+          isForm: true,
+          isSearch: true,
+          isResults: true,
+          isAction: true,
+          isLoadMore: true
+        },
+        display: [{
+          key: 'batch_id',
+          val: 'Batch',
+          type: 'text'
+        }, {
+          key: 'staff_id',
+          val: 'Staff',
+          type: 'text'
+        }],
+        elements: [{
+          label: 'Batch',
+          name: 'batch_id',
+          value: '',
+          values: [],
+          ObjectValue: {},
+          options: this.batches,
+          placeholder: 'Please Select Batch',
+          type: 'select',
+          validation: 'required',
+          "class": 'col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mb-3',
+          labelClass: '',
+          hint: 'Please Select Batch',
+          error: '',
+          isError: false,
+          readonly: false
+        }, {
+          label: 'Staff',
+          name: 'staff_id',
+          value: '',
+          values: [],
+          ObjectValue: {},
+          options: this.faculties,
+          placeholder: 'Please Select Staff',
+          type: 'select',
+          validation: 'required',
+          "class": 'col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mb-3',
+          labelClass: '',
+          hint: 'Please Select Staff',
+          error: '',
+          isError: false,
+          readonly: false
+        }]
+      }
+    };
+  },
+  methods: {
+    change: function change(e) {
+      /* console.log(e.target.value); */
+    }
+    /* getBusinessPlan(){
+        window.axios.get('/auth/crud/showall?model=BusinessPlan&key=plan_name&val=id').then(res => {
+            this.formData.elements[1].options = res.data;
+        });
+    } */
+
+  },
+  created: function created() {
+    if (this.id == null) {
+      this.formData.id = 0;
+    } else {
+      this.formData.id = this.id;
+    }
+  },
+  mounted: function mounted() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/administrator/batch_manager/BatchStudents.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/administrator/batch_manager/BatchStudents.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _form_NewForm_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../form/NewForm.vue */ "./resources/js/components/form/NewForm.vue");
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['id', 'batches', 'students'],
+  components: {
+    LitsForm: _form_NewForm_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      formData: {
+        id: 0,
+        title: "Batch Student Manager",
+        formName: "BatchStudentForm",
+        model: "BatchStudent",
+        action: "CRUD",
+
+        /* CRUD | EDIT | SEARCH */
+        method: "",
+        custom_query: [],
+        "with": [],
+        mail: {
+          name: "Sandeep Rathod",
+          to: "sandeep198558@yahoo.com",
+          subject: "Email From Users of Zataks"
+        },
+        settings: {
+          isTitle: true,
+          isReset: true,
+          isSubmit: true,
+          isDateSearch: false,
+          isExport: true,
+          isForm: true,
+          isSearch: true,
+          isResults: true,
+          isAction: true,
+          isLoadMore: true
+        },
+        display: [{
+          key: 'batch_id',
+          val: 'Batch ID',
+          type: 'text'
+        }, {
+          key: 'batch_name',
+          val: 'Batch',
+          type: 'text'
+        }, {
+          key: 'student_data',
+          val: 'Student',
+          type: 'text'
+        }],
+        elements: [{
+          label: 'Batch',
+          name: 'batch_id',
+          value: '',
+          values: [],
+          ObjectValue: {},
+          options: this.batches,
+          placeholder: 'Please Select Batch',
+          type: 'select',
+          validation: 'required',
+          "class": 'col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mb-3',
+          labelClass: '',
+          hint: 'Please Select Batch',
+          error: '',
+          isError: false,
+          readonly: false
+        }, {
+          label: 'Student',
+          name: 'student_course_id',
+          value: '',
+          values: [],
+          ObjectValue: {},
+          options: this.students,
+          placeholder: 'Please Select Student',
+          type: 'select',
+          validation: 'required',
+          "class": 'col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mb-3',
+          labelClass: '',
+          hint: 'Please Select Student',
+          error: '',
+          isError: false,
+          readonly: false
+        }]
+      }
+    };
+  },
+  methods: {
+    change: function change(e) {
+      /* console.log(e.target.value); */
+    },
+
+    /* getBusinessPlan(){
+        window.axios.get('/auth/crud/showall?model=BusinessPlan&key=plan_name&val=id').then(res => {
+            this.formData.elements[1].options = res.data;
+        });
+    } */
+    getStudents: function getStudents() {
+      var a = [];
+      this.students.forEach(function (std) {
+        console.log(std);
+        var b = {
+          key: std.student_data,
+          value: std.id
+        };
+        a.push(b);
+      });
+      this.formData.elements[1].options = a;
+    }
+  },
+  created: function created() {
+    if (this.id == null) {
+      this.formData.id = 0;
+    } else {
+      this.formData.id = this.id;
+    }
+
+    this.getStudents();
+  },
+  mounted: function mounted() {}
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/administrator/batch_manager/Batches.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/administrator/batch_manager/Batches.vue?vue&type=script&lang=js& ***!
@@ -9987,6 +10245,55 @@ __webpack_require__.r(__webpack_exports__);
       this.formData.id = this.id;
     }
   },
+  mounted: function mounted() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/administrator/exam_result_manager/Exam.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/administrator/exam_result_manager/Exam.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['id'],
+  components: {},
+  data: function data() {
+    return {
+      formData: {
+        id: 0,
+        title: "Slider Manager",
+        formName: "SliderForm",
+        model: "Warehouse",
+        action: "CRUD",
+        method: "",
+        custom_query: [],
+        "with": []
+      }
+    };
+  },
+  methods: {
+    change: function change(e) {
+      /* console.log(e.target.value); */
+    }
+    /* getBusinessPlan(){
+        window.axios.get('/auth/crud/showall?model=BusinessPlan&key=plan_name&val=id').then(res => {
+            this.formData.elements[1].options = res.data;
+        });
+    } */
+
+  },
+  created: function created() {},
   mounted: function mounted() {}
 });
 
@@ -48526,6 +48833,64 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/administrator/batch_manager/BatchFaculties.vue?vue&type=template&id=aae5b548&":
+/*!*********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/administrator/batch_manager/BatchFaculties.vue?vue&type=template&id=aae5b548& ***!
+  \*********************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container-fluid p-0" },
+    [_c("lits-form", { attrs: { formData: _vm.formData } })],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/administrator/batch_manager/BatchStudents.vue?vue&type=template&id=03caca2e&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/administrator/batch_manager/BatchStudents.vue?vue&type=template&id=03caca2e& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container-fluid p-0" },
+    [_c("lits-form", { attrs: { formData: _vm.formData } })],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/administrator/batch_manager/Batches.vue?vue&type=template&id=6d56feb8&":
 /*!**************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/administrator/batch_manager/Batches.vue?vue&type=template&id=6d56feb8& ***!
@@ -49201,6 +49566,32 @@ var render = function() {
     [_c("lits-form", { attrs: { formData: _vm.formData } })],
     1
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/administrator/exam_result_manager/Exam.vue?vue&type=template&id=149006b0&":
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/administrator/exam_result_manager/Exam.vue?vue&type=template&id=149006b0& ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container-fluid p-0" }, [
+    _vm._v("\n    Hello World\n")
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -63166,8 +63557,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_administrator_batch_manager_Batches_vue__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/administrator/batch_manager/Batches.vue */ "./resources/js/components/administrator/batch_manager/Batches.vue");
 /* harmony import */ var _components_administrator_batch_manager_BatchFaculties_vue__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/administrator/batch_manager/BatchFaculties.vue */ "./resources/js/components/administrator/batch_manager/BatchFaculties.vue");
 /* harmony import */ var _components_administrator_batch_manager_BatchStudents_vue__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/administrator/batch_manager/BatchStudents.vue */ "./resources/js/components/administrator/batch_manager/BatchStudents.vue");
-/* harmony import */ var _components_administrator_batch_manager_BatchSessions_vue__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/administrator/batch_manager/BatchSessions.vue */ "./resources/js/components/administrator/batch_manager/BatchSessions.vue");
-/* harmony import */ var _components_administrator_batch_manager_SessionAttendance_vue__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/administrator/batch_manager/SessionAttendance.vue */ "./resources/js/components/administrator/batch_manager/SessionAttendance.vue");
+/* harmony import */ var _components_administrator_exam_result_manager_Exam_vue__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/administrator/exam_result_manager/Exam.vue */ "./resources/js/components/administrator/exam_result_manager/Exam.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -63237,7 +63627,6 @@ Vue.use(vue_debounce__WEBPACK_IMPORTED_MODULE_0___default.a);
 
 
 
-
 var app = new Vue({
   el: '#app',
   components: {
@@ -63271,8 +63660,7 @@ var app = new Vue({
     AdminBatchManagerBatches: _components_administrator_batch_manager_Batches_vue__WEBPACK_IMPORTED_MODULE_28__["default"],
     AdminBatchManagerBatchFaculties: _components_administrator_batch_manager_BatchFaculties_vue__WEBPACK_IMPORTED_MODULE_29__["default"],
     AdminBatchManagerBatchStudents: _components_administrator_batch_manager_BatchStudents_vue__WEBPACK_IMPORTED_MODULE_30__["default"],
-    AdminBatchManagerBatchSessions: _components_administrator_batch_manager_BatchSessions_vue__WEBPACK_IMPORTED_MODULE_31__["default"],
-    AdminBatchManagerSessionAttendance: _components_administrator_batch_manager_SessionAttendance_vue__WEBPACK_IMPORTED_MODULE_32__["default"]
+    AdminExamResultManagerExam: _components_administrator_exam_result_manager_Exam_vue__WEBPACK_IMPORTED_MODULE_31__["default"]
   }
 });
 
@@ -63332,17 +63720,20 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-var render, staticRenderFns
-var script = {}
+/* harmony import */ var _BatchFaculties_vue_vue_type_template_id_aae5b548___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BatchFaculties.vue?vue&type=template&id=aae5b548& */ "./resources/js/components/administrator/batch_manager/BatchFaculties.vue?vue&type=template&id=aae5b548&");
+/* harmony import */ var _BatchFaculties_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BatchFaculties.vue?vue&type=script&lang=js& */ "./resources/js/components/administrator/batch_manager/BatchFaculties.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
-  script,
-  render,
-  staticRenderFns,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _BatchFaculties_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _BatchFaculties_vue_vue_type_template_id_aae5b548___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _BatchFaculties_vue_vue_type_template_id_aae5b548___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -63350,40 +63741,42 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   
 )
 
+/* hot reload */
+if (false) { var api; }
 component.options.__file = "resources/js/components/administrator/batch_manager/BatchFaculties.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/administrator/batch_manager/BatchSessions.vue":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/components/administrator/batch_manager/BatchSessions.vue ***!
-  \*******************************************************************************/
+/***/ "./resources/js/components/administrator/batch_manager/BatchFaculties.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/components/administrator/batch_manager/BatchFaculties.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-var render, staticRenderFns
-var script = {}
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BatchFaculties_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./BatchFaculties.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/administrator/batch_manager/BatchFaculties.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BatchFaculties_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/administrator/batch_manager/BatchFaculties.vue?vue&type=template&id=aae5b548&":
+/*!***************************************************************************************************************!*\
+  !*** ./resources/js/components/administrator/batch_manager/BatchFaculties.vue?vue&type=template&id=aae5b548& ***!
+  \***************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BatchFaculties_vue_vue_type_template_id_aae5b548___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./BatchFaculties.vue?vue&type=template&id=aae5b548& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/administrator/batch_manager/BatchFaculties.vue?vue&type=template&id=aae5b548&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BatchFaculties_vue_vue_type_template_id_aae5b548___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BatchFaculties_vue_vue_type_template_id_aae5b548___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
-  script,
-  render,
-  staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-component.options.__file = "resources/js/components/administrator/batch_manager/BatchSessions.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
@@ -63396,17 +63789,20 @@ component.options.__file = "resources/js/components/administrator/batch_manager/
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-var render, staticRenderFns
-var script = {}
+/* harmony import */ var _BatchStudents_vue_vue_type_template_id_03caca2e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BatchStudents.vue?vue&type=template&id=03caca2e& */ "./resources/js/components/administrator/batch_manager/BatchStudents.vue?vue&type=template&id=03caca2e&");
+/* harmony import */ var _BatchStudents_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BatchStudents.vue?vue&type=script&lang=js& */ "./resources/js/components/administrator/batch_manager/BatchStudents.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
-  script,
-  render,
-  staticRenderFns,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _BatchStudents_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _BatchStudents_vue_vue_type_template_id_03caca2e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _BatchStudents_vue_vue_type_template_id_03caca2e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -63414,8 +63810,42 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   
 )
 
+/* hot reload */
+if (false) { var api; }
 component.options.__file = "resources/js/components/administrator/batch_manager/BatchStudents.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/administrator/batch_manager/BatchStudents.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/js/components/administrator/batch_manager/BatchStudents.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BatchStudents_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./BatchStudents.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/administrator/batch_manager/BatchStudents.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BatchStudents_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/administrator/batch_manager/BatchStudents.vue?vue&type=template&id=03caca2e&":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/components/administrator/batch_manager/BatchStudents.vue?vue&type=template&id=03caca2e& ***!
+  \**************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BatchStudents_vue_vue_type_template_id_03caca2e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./BatchStudents.vue?vue&type=template&id=03caca2e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/administrator/batch_manager/BatchStudents.vue?vue&type=template&id=03caca2e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BatchStudents_vue_vue_type_template_id_03caca2e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BatchStudents_vue_vue_type_template_id_03caca2e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
@@ -63485,38 +63915,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Batches_vue_vue_type_template_id_6d56feb8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
-
-/***/ }),
-
-/***/ "./resources/js/components/administrator/batch_manager/SessionAttendance.vue":
-/*!***********************************************************************************!*\
-  !*** ./resources/js/components/administrator/batch_manager/SessionAttendance.vue ***!
-  \***********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-var render, staticRenderFns
-var script = {}
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
-  script,
-  render,
-  staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-component.options.__file = "resources/js/components/administrator/batch_manager/SessionAttendance.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
@@ -64964,6 +65362,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StaffManager_vue_vue_type_template_id_37fb05ba___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StaffManager_vue_vue_type_template_id_37fb05ba___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/administrator/exam_result_manager/Exam.vue":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/administrator/exam_result_manager/Exam.vue ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Exam_vue_vue_type_template_id_149006b0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Exam.vue?vue&type=template&id=149006b0& */ "./resources/js/components/administrator/exam_result_manager/Exam.vue?vue&type=template&id=149006b0&");
+/* harmony import */ var _Exam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Exam.vue?vue&type=script&lang=js& */ "./resources/js/components/administrator/exam_result_manager/Exam.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Exam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Exam_vue_vue_type_template_id_149006b0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Exam_vue_vue_type_template_id_149006b0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/administrator/exam_result_manager/Exam.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/administrator/exam_result_manager/Exam.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/administrator/exam_result_manager/Exam.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Exam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Exam.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/administrator/exam_result_manager/Exam.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Exam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/administrator/exam_result_manager/Exam.vue?vue&type=template&id=149006b0&":
+/*!***********************************************************************************************************!*\
+  !*** ./resources/js/components/administrator/exam_result_manager/Exam.vue?vue&type=template&id=149006b0& ***!
+  \***********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Exam_vue_vue_type_template_id_149006b0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Exam.vue?vue&type=template&id=149006b0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/administrator/exam_result_manager/Exam.vue?vue&type=template&id=149006b0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Exam_vue_vue_type_template_id_149006b0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Exam_vue_vue_type_template_id_149006b0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

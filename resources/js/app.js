@@ -92,8 +92,9 @@ import AdminStudentManagerStudentCourseDocuments from './components/administrato
 import AdminBatchManagerBatches from './components/administrator/batch_manager/Batches.vue';
 import AdminBatchManagerBatchFaculties from './components/administrator/batch_manager/BatchFaculties.vue';
 import AdminBatchManagerBatchStudents from './components/administrator/batch_manager/BatchStudents.vue';
-import AdminBatchManagerBatchSessions from './components/administrator/batch_manager/BatchSessions.vue';
-import AdminBatchManagerSessionAttendance from './components/administrator/batch_manager/SessionAttendance.vue';
+
+import AdminExamResultManagerExam from './components/administrator/exam_result_manager/Exam.vue';
+
 
 const app = new Vue({
     el: '#app',
@@ -132,7 +133,7 @@ const app = new Vue({
         AdminBatchManagerBatches,
         AdminBatchManagerBatchFaculties,
         AdminBatchManagerBatchStudents,
-        AdminBatchManagerBatchSessions,
-        AdminBatchManagerSessionAttendance,
+
+        AdminExamResultManagerExam,
     }
 });

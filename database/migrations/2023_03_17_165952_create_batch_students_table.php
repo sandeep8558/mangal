@@ -17,7 +17,7 @@ class CreateBatchStudentsTable extends Migration
             $table->id();
 
             $table->bigInteger('batch_id')->index();
-            $table->bigInteger('student_id')->index();
+            $table->bigInteger('student_course_id')->index();
 
             $table->timestamps();
         });

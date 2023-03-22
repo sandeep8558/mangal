@@ -22,6 +22,10 @@ class StudentCourse extends Model
         'effective_till',
     ];
 
+    public function branch(){
+        return $this->belongsTo("App\Models\Branch");
+    }
+
     public function student(){
         return $this->belongsTo("App\Models\Student");
     }
@@ -33,5 +37,16 @@ class StudentCourse extends Model
     public function course(){
         return $this->belongsTo("App\Models\Course");
     }
+
+    public function batch_students(){
+        return $this->hasMany("App\Models\BatchStudent");
+    }
+
+    protected $appends = ['student_data'];
+
+    public function getStudentDataAttribute(){
+        return $this->student->fname . " " . $this->student->lname . " - " . $this->course->course;
+    }
+
     
 }

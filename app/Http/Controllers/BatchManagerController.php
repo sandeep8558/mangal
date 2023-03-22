@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Branch;
 use App\Models\ClassroomSlot;
 use App\Models\Classroom;
+use App\Models\Batch;
+use App\Models\Staff;
+use App\Models\StudentCourse;
 
 class BatchManagerController extends Controller
 {
@@ -22,11 +25,17 @@ class BatchManagerController extends Controller
     }
 
     public function batch_faculties(){
-        return view("administrator.batch_manager.batch_faculties");
+        $batches = Batch::get(['batch_name as key', 'id as value']);
+        $faculties = Staff::where('exit', null)->get(['employee_name as key', 'id as value']);
+        return view("administrator.batch_manager.batch_faculties", compact("batches", "faculties"));
     }
 
     public function batch_students(){
-        return view("administrator.batch_manager.batch_students");
+        $batches = Batch::get(['batch_name as key', 'id as value']);
+        $students = StudentCourse::
+        doesntHave("batch_students")
+        ->get();
+        return view("administrator.batch_manager.batch_students", compact("batches", "students"));
     }
 
     public function batch_sessions(){

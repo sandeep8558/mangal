@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-<admin-batch-manager-batch-students></admin-batch-manager-batch-students>
+<admin-batch-manager-batch-students :batches="{{$batches}}" :students="{{$students}}"></admin-batch-manager-batch-students>
 @endsection

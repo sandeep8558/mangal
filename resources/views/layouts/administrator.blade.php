@@ -138,8 +138,6 @@
                                 <li class="list-group-item"><a class="btn btn-default btn-sm btn-full border-0 {{ (request()->is('administrator/batch_manager/batches')) ? 'fw-bold' : '' }}" href="/administrator/batch_manager/batches">Batches</a></li>
                                 <li class="list-group-item"><a class="btn btn-default btn-sm btn-full border-0 {{ (request()->is('administrator/batch_manager/batch_faculties')) ? 'fw-bold' : '' }}" href="/administrator/batch_manager/batch_faculties">Batch Faculty</a></li>
                                 <li class="list-group-item"><a class="btn btn-default btn-sm btn-full border-0 {{ (request()->is('administrator/batch_manager/batch_students')) ? 'fw-bold' : '' }}" href="/administrator/batch_manager/batch_students">Batch Students</a></li>
-                                <li class="list-group-item"><a class="btn btn-default btn-sm btn-full border-0 {{ (request()->is('administrator/batch_manager/batch_sessions')) ? 'fw-bold' : '' }}" href="/administrator/batch_manager/batch_sessions">Batch Sessions</a></li>
-                                <li class="list-group-item"><a class="btn btn-default btn-sm btn-full border-0 {{ (request()->is('administrator/batch_manager/session_attendance')) ? 'fw-bold' : '' }}" href="/administrator/batch_manager/session_attendance">Session Attendance</a></li>
                             </ul>
                         </div>
                     </div>
@@ -147,15 +145,16 @@
 
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingExamAndResults">
-                        <button class="accordion-button {{ (request()->is('administrator/staff_manager*')) ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExamAndResults" aria-expanded="false" aria-controls="collapseExamAndResults">
+                        <button class="accordion-button {{ (request()->is('administrator/exam_result_manager*')) ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExamAndResults" aria-expanded="false" aria-controls="collapseExamAndResults">
                             <i class="fas fa-fw fa-tachometer-alt mr-2"></i>
                             Exam & Results
                         </button>
                     </h2>
-                    <div id="collapseExamAndResults" class="accordion-collapse collapse {{ (request()->is('administrator/staff_manager*')) ? 'show' : '' }}" aria-labelledby="headingExamAndResults" data-bs-parent="#accordionExample">
+                    <div id="collapseExamAndResults" class="accordion-collapse collapse {{ (request()->is('administrator/exam_result_manager*')) ? 'show' : '' }}" aria-labelledby="headingExamAndResults" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <ul class="list-group list-group-flush d-grid p-0">
-                                <li class="list-group-item"><a class="btn btn-default btn-sm btn-full border-0 {{ (request()->is('administrator/staff_manager/accreditation')) ? 'fw-bold' : '' }}" href="/administrator/staff_manager/accreditation">Accreditation</a></li>
+                                <li class="list-group-item"><a class="btn btn-default btn-sm btn-full border-0 {{ (request()->is('administrator/exam_result_manager/exam')) ? 'fw-bold' : '' }}" href="/administrator/exam_result_manager/exam">Exam Manager</a></li>
+                                <li class="list-group-item"><a class="btn btn-default btn-sm btn-full border-0 {{ (request()->is('administrator/exam_result_manager/result')) ? 'fw-bold' : '' }}" href="/administrator/exam_result_manager/result">Result Manager</a></li>
                             </ul>
                         </div>
                     </div>
