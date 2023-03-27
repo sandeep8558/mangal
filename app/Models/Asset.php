@@ -18,5 +18,9 @@ class Asset extends Model
         'dt',
         'expiry',
     ];
+
+    public function branch(){
+        return $this->belongsTo("App\Models\Branch");
+    }
     
 }

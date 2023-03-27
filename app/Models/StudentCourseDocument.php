@@ -14,4 +14,12 @@ class StudentCourseDocument extends Model
         'all_document_id',
         'media',
     ];
+
+    public function student_course(){
+        return $this->belongsTo("App\Models\StudentCourse");
+    }
+
+    public function document(){
+        return $this->belongsTo("App\Models\AllDocument");
+    }
 }

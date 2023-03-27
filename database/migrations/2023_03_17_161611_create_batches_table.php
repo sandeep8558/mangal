@@ -33,6 +33,10 @@ class CreateBatchesTable extends Migration
             $table->text('sat_slots')->nullable();
             $table->text('sun_slots')->nullable();
 
+            $table->set('status', ['On Going', 'Closed'])->default('On Going');
+            $table->set('syllabus', ['Pending', 'Completed'])->default('Pending');
+            $table->set('markentry', ['Pending', 'Completed'])->default('Pending');
+
             $table->timestamps();
         });
     }

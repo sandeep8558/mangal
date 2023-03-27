@@ -13,5 +13,13 @@ class ExamBatch extends Model
         'examination_id',
         'batch_id',
     ];
+
+    public function examination(){
+        return $this->belongsTo("App\Models\Examination");
+    }
+
+    public function batch(){
+        return $this->belongsTo("App\Models\Batch");
+    }
     
 }

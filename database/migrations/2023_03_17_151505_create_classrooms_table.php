@@ -16,6 +16,7 @@ class CreateClassroomsTable extends Migration
         Schema::create('classrooms', function (Blueprint $table) {
             $table->id();
 
+            $table->bigInteger('branch_id')->index();
             $table->set('display', ['Show', 'Hide'])->default('Show');
             $table->string('classroom_name');
             $table->string('description')->nullable();

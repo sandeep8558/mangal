@@ -81,8 +81,6 @@ export default {
                         options : [
                             { key : 'Select Payment Type', value : '' },
                             { key : 'Hourly', value : 'Hourly' },
-                            { key : 'Daily', value : 'Daily' },
-                            { key : 'Weekly', value : 'Weekly' },
                             { key : 'Monthly', value : 'Monthly' },
                         ],
                         placeholder : 'Please Select Payment Type',

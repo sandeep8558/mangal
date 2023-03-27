@@ -17,5 +17,9 @@ class StudentEducation extends Model
         'grade',
         'remark',
     ];
+
+    public function student(){
+        return $this->belongsTo("App\Models\Student");
+    }
     
 }

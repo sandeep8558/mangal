@@ -16,5 +16,13 @@ class SalaryHistory extends Model
         'effective_till',
         'remark',
     ];
+
+    public function staff(){
+        return $this->belongsTo("App\Models\Staff");
+    }
+
+    public function salary_group(){
+        return $this->belongsTo("App\Models\SalaryGroup");
+    }
     
 }

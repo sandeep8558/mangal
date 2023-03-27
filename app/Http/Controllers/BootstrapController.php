@@ -41,6 +41,7 @@ class BootstrapController extends Controller
 
     public function classroom(){
         $slots = ClassroomSlot::get(['name as key', 'id as value']);
-        return view("administrator.bootstrap.classroom", compact('slots'));
+        $branches = Branch::get(['location_name as key', 'id as value']);
+        return view("administrator.bootstrap.classroom", compact('slots', 'branches'));
     }
 }

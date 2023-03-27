@@ -34,6 +34,10 @@ class HomeController extends Controller
                 return redirect('/administrator');
                 break;
 
+                case "Staff":
+                return redirect('/mystaff');
+                break;
+
                 case "Customer":
                 return redirect('/customer');
                 break;

@@ -15,5 +15,9 @@ class FeeReceipt extends Model
         'amount',
         'narration',
     ];
+
+    public function student_course(){
+        return $this->belongsTo("App\Models\StudentCourse");
+    }
     
 }

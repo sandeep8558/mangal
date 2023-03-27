@@ -16,5 +16,21 @@ class ExamSubject extends Model
         'dt',
         'slots',
     ];
+
+    public function examination(){
+        return $this->belongsTo("App\Models\Examination");
+    }
+
+    public function subject(){
+        return $this->belongsTo("App\Models\Subject");
+    }
+
+    public function classroom(){
+        return $this->belongsTo("App\Models\Classroom");
+    }
+
+    public function exam_subject_invigilators(){
+        return $this->hasMany("App\Models\ExamSubjectInvigilator");
+    }
     
 }

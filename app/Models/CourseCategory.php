@@ -17,4 +17,8 @@ class CourseCategory extends Model
         'description',
         'media',
     ];
+
+    public function courses(){
+        return $this->hasMany("App\Models\Course");
+    }
 }

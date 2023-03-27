@@ -10,6 +10,7 @@ class Classroom extends Model
     use HasFactory;
 
     protected $fillable = [
+        'branch_id',
         'display',
         'classroom_name',
         'description',
@@ -17,5 +18,17 @@ class Classroom extends Model
         'pc_capacity',
         'slots',
     ];
+
+    public function branch(){
+        return $this->belongsTo("App\Models\Branch");
+    }
+
+    public function batches(){
+        return $this->hasMany("App\Models\Batch");
+    }
+
+    public function exam_subjects(){
+        return $this->hasMany("App\Models\ExamSubject");
+    }
     
 }

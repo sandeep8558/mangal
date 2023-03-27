@@ -16,5 +16,13 @@ class DesignationHistory extends Model
         'effective_till',
         'remark',
     ];
+
+    public function staff(){
+        return $this->belongsTo("App\Models\Staff");
+    }
+
+    public function designation(){
+        return $this->belongsTo("App\Models\Designation");
+    }
     
 }

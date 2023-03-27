@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-<admin-course-bootstrap-course-material :categories="{{$categories}}"></admin-course-bootstrap-course-material>
+<admin-course-bootstrap-course-material :categories="{{$categories}}" :materials="{{$materials}}"></admin-course-bootstrap-course-material>
 @endsection

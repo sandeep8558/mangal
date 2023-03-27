@@ -58,6 +58,8 @@ window.Vue = require('vue');
 import vueDebounce from 'vue-debounce'
 Vue.use(vueDebounce)
 
+import AdminUserManager from './components/administrator/UserManager.vue';
+
 import AdminBootstrapAccreditation from './components/administrator/bootstrap/Accreditation.vue';
 import AdminBootstrapBranches from './components/administrator/bootstrap/Branches.vue';
 import AdminBootstrapSalaryGroup from './components/administrator/bootstrap/SalaryGroup.vue';
@@ -67,6 +69,7 @@ import AdminBootstrapClassroomSlots from './components/administrator/bootstrap/C
 import AdminBootstrapClassroom from './components/administrator/bootstrap/Classroom.vue';
 
 import AdminCourseBootstrapRelatedDocuments from './components/administrator/courses_bootstrap/RelatedDocuments.vue';
+import AdminCourseBootstrapMaterial from './components/administrator/courses_bootstrap/Material.vue';
 import AdminCourseBootstrapCourseCategory from './components/administrator/courses_bootstrap/CourseCategory.vue';
 import AdminCourseBootstrapCourses from './components/administrator/courses_bootstrap/Courses.vue';
 import AdminCourseBootstrapCourseSubjects from './components/administrator/courses_bootstrap/CourseSubjects.vue';
@@ -74,6 +77,7 @@ import AdminCourseBootstrapCourseFees from './components/administrator/courses_b
 import AdminCourseBootstrapCourseDocuments from './components/administrator/courses_bootstrap/CourseDocuments.vue';
 import AdminCourseBootstrapCourseSections from './components/administrator/courses_bootstrap/CourseSections.vue';
 import AdminCourseBootstrapCourseMaterial from './components/administrator/courses_bootstrap/CourseMaterial.vue';
+import AdminCourseBootstrapCourseMaterialPurchase from './components/administrator/courses_bootstrap/CourseMaterialPurchase.vue';
 
 import AdminEmployeeManagerStaffManager from './components/administrator/employee_manager/StaffManager.vue';
 import AdminEmployeeManagerStaffDocuments from './components/administrator/employee_manager/StaffDocuments.vue';
@@ -92,13 +96,20 @@ import AdminStudentManagerStudentCourseDocuments from './components/administrato
 import AdminBatchManagerBatches from './components/administrator/batch_manager/Batches.vue';
 import AdminBatchManagerBatchFaculties from './components/administrator/batch_manager/BatchFaculties.vue';
 import AdminBatchManagerBatchStudents from './components/administrator/batch_manager/BatchStudents.vue';
+import AdminBatchManagerBatchCourses from './components/administrator/batch_manager/BatchCourses.vue';
 
 import AdminExamResultManagerExam from './components/administrator/exam_result_manager/Exam.vue';
+
+/* Staff Components */
+import StaffSessionStart from './components/staff/SessionStart.vue';
+import StaffSwitch from './components/staff/Switch.vue';
 
 
 const app = new Vue({
     el: '#app',
     components: {
+        AdminUserManager,
+
         AdminBootstrapAccreditation,
         AdminBootstrapBranches,
         AdminBootstrapSalaryGroup,
@@ -108,6 +119,7 @@ const app = new Vue({
         AdminBootstrapClassroom,
 
         AdminCourseBootstrapRelatedDocuments,
+        AdminCourseBootstrapMaterial,
         AdminCourseBootstrapCourseCategory,
         AdminCourseBootstrapCourses,
         AdminCourseBootstrapCourseSubjects,
@@ -115,6 +127,7 @@ const app = new Vue({
         AdminCourseBootstrapCourseDocuments,
         AdminCourseBootstrapCourseSections,
         AdminCourseBootstrapCourseMaterial,
+        AdminCourseBootstrapCourseMaterialPurchase,
 
         AdminEmployeeManagerStaffManager,
         AdminEmployeeManagerStaffDocuments,
@@ -133,7 +146,12 @@ const app = new Vue({
         AdminBatchManagerBatches,
         AdminBatchManagerBatchFaculties,
         AdminBatchManagerBatchStudents,
+        AdminBatchManagerBatchCourses,
 
         AdminExamResultManagerExam,
+
+        /* Staff Components */
+        StaffSessionStart,
+        StaffSwitch,
     }
 });

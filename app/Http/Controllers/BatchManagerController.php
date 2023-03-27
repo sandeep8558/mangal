@@ -9,6 +9,8 @@ use App\Models\Classroom;
 use App\Models\Batch;
 use App\Models\Staff;
 use App\Models\StudentCourse;
+use App\Models\CourseCategory;
+use App\Models\BatchCourse;
 
 class BatchManagerController extends Controller
 {
@@ -32,10 +34,21 @@ class BatchManagerController extends Controller
 
     public function batch_students(){
         $batches = Batch::get(['batch_name as key', 'id as value']);
-        $students = StudentCourse::
-        doesntHave("batch_students")
+        return view("administrator.batch_manager.batch_students", compact("batches"));
+    }
+
+    public function get_students(Request $request){
+        $courses = BatchCourse::where("batch_id", $request->batch_id)->pluck("course_id");
+        return $students = StudentCourse::
+        whereIn("course_id", $courses)
+        ->doesntHave("batch_students")
         ->get();
-        return view("administrator.batch_manager.batch_students", compact("batches", "students"));
+    }
+
+    public function batch_courses(){
+        $batches = Batch::get(['batch_name as key', 'id as value']);
+        $categories = CourseCategory::get(['category as key', 'id as value']);
+        return view("administrator.batch_manager.batch_courses", compact("batches", "categories"));
     }
 
     public function batch_sessions(){
@@ -45,4 +58,5 @@ class BatchManagerController extends Controller
     public function session_attendance(){
         return view("administrator.batch_manager.session_attendance");
     }
+
 }

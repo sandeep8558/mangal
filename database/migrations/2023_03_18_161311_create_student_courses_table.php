@@ -20,9 +20,11 @@ class CreateStudentCoursesTable extends Migration
             $table->bigInteger('student_id')->nullable();
             $table->bigInteger('category_id')->nullable();
             $table->bigInteger('course_id')->nullable();
-            $table->double('actual_fees_amount')->nullable();
-            $table->double('discount')->nullable();
-            $table->double('fees_amount')->nullable();
+            $table->bigInteger('course_instrument_id')->nullable();
+            $table->double('actual_fees_amount')->default(0);
+            $table->double('instrument_amount')->default(0);
+            $table->double('discount')->default(0);
+            $table->double('fees_amount')->default(0);
             $table->date('admission_at')->nullable();
             $table->date('effective_from')->nullable();
             $table->date('effective_till')->nullable();

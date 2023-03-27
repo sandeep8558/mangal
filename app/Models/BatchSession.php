@@ -20,5 +20,25 @@ class BatchSession extends Model
         'description',
         'validated_id',
     ];
+
+    public function batch(){
+        return $this->belongsTo("App\Models\Batch");
+    }
+
+    public function staff(){
+        return $this->belongsTo("App\Models\Staff");
+    }
+
+    public function classroom(){
+        return $this->belongsTo("App\Models\Classroom");
+    }
+
+    public function validator(){
+        return $this->belongsTo("App\Models\Staff", "validated_id");
+    }
+
+    public function session_attendances(){
+        return $this->hasMany("App\Models\SessionAttendance");
+    }
     
 }

@@ -14,6 +14,8 @@ class StudentCourse extends Model
         'student_id',
         'category_id',
         'course_id',
+        'course_instrument_id',
+        'instrument_amount',
         'actual_fees_amount',
         'discount',
         'fees_amount',
@@ -40,6 +42,22 @@ class StudentCourse extends Model
 
     public function batch_students(){
         return $this->hasMany("App\Models\BatchStudent");
+    }
+
+    public function student_course_documents(){
+        return $this->hasMany("App\Models\StudentCourseDocument");
+    }
+
+    public function fee_receipts(){
+        return $this->hasMany("App\Models\FeeReceipt");
+    }
+
+    public function exam_results(){
+        return $this->hasMany("App\Models\ExamResult");
+    }
+
+    public function session_attendances(){
+        return $this->hasMany("App\Models\SessionAttendance");
     }
 
     protected $appends = ['student_data'];

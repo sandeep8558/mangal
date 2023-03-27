@@ -27,5 +27,37 @@ class Staff extends Model
         'email',
         'photo',
     ];
+
+    public function batch_faculties(){
+        return $this->hasMany("App\Models\BatchFaculty")->has('open_batch');
+    }
+
+    public function batch_sessions(){
+        return $this->hasMany("App\Models\BatchSession");
+    }
+
+    public function branch_histories(){
+        return $this->hasMany("App\Models\BranchHistory");
+    }
+
+    public function designation_histories(){
+        return $this->hasMany("App\Models\DesignationHistory");
+    }
+
+    public function employee_reviews(){
+        return $this->hasMany("App\Models\EmployeeReview");
+    }
+
+    public function exam_subject_invigilators(){
+        return $this->hasMany("App\Models\ExamSubjectInvigilator");
+    }
+
+    public function salary_histories(){
+        return $this->hasMany("App\Models\SalaryHistory");
+    }
+
+    public function staff_documents(){
+        return $this->hasMany("App\Models\StaffDocument");
+    }
     
 }

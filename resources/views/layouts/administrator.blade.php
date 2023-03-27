@@ -71,6 +71,8 @@
                         <div class="accordion-body">
                             <ul class="list-group list-group-flush d-grid p-0">
                                 <li class="list-group-item"><a class="btn btn-default btn-sm btn-full border-0 {{ (request()->is('administrator/courses_bootstrap/related_documents')) ? 'fw-bold' : '' }}" href="/administrator/courses_bootstrap/related_documents">Related Documents</a></li>
+                                <li class="list-group-item"><a class="btn btn-default btn-sm btn-full border-0 {{ (request()->is('administrator/courses_bootstrap/material')) ? 'fw-bold' : '' }}" href="/administrator/courses_bootstrap/material">Material</a></li>
+                                <li class="list-group-item"><a class="btn btn-default btn-sm btn-full border-0 {{ (request()->is('administrator/courses_bootstrap/course_material_purchase')) ? 'fw-bold' : '' }}" href="/administrator/courses_bootstrap/course_material_purchase">Material Purcase</a></li>
                                 <li class="list-group-item"><a class="btn btn-default btn-sm btn-full border-0 {{ (request()->is('administrator/courses_bootstrap/course_category')) ? 'fw-bold' : '' }}" href="/administrator/courses_bootstrap/course_category">Course Category</a></li>
                                 <li class="list-group-item"><a class="btn btn-default btn-sm btn-full border-0 {{ (request()->is('administrator/courses_bootstrap/courses')) ? 'fw-bold' : '' }}" href="/administrator/courses_bootstrap/courses">Courses</a></li>
                                 <li class="list-group-item"><a class="btn btn-default btn-sm btn-full border-0 {{ (request()->is('administrator/courses_bootstrap/course_subjects')) ? 'fw-bold' : '' }}" href="/administrator/courses_bootstrap/course_subjects">Course Subjects</a></li>
@@ -136,6 +138,7 @@
                         <div class="accordion-body">
                             <ul class="list-group list-group-flush d-grid p-0">
                                 <li class="list-group-item"><a class="btn btn-default btn-sm btn-full border-0 {{ (request()->is('administrator/batch_manager/batches')) ? 'fw-bold' : '' }}" href="/administrator/batch_manager/batches">Batches</a></li>
+                                <li class="list-group-item"><a class="btn btn-default btn-sm btn-full border-0 {{ (request()->is('administrator/batch_manager/batch_courses')) ? 'fw-bold' : '' }}" href="/administrator/batch_manager/batch_courses">Batch Courses</a></li>
                                 <li class="list-group-item"><a class="btn btn-default btn-sm btn-full border-0 {{ (request()->is('administrator/batch_manager/batch_faculties')) ? 'fw-bold' : '' }}" href="/administrator/batch_manager/batch_faculties">Batch Faculty</a></li>
                                 <li class="list-group-item"><a class="btn btn-default btn-sm btn-full border-0 {{ (request()->is('administrator/batch_manager/batch_students')) ? 'fw-bold' : '' }}" href="/administrator/batch_manager/batch_students">Batch Students</a></li>
                             </ul>
@@ -175,6 +178,15 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+
+                <div class="accordion-item bg-primary">
+                    <h2 class="accordion-header" id="headingOne">
+                        <a href="/administrator/user_manager" class="btn accordion-button collapsed no-caret {{ (request()->is('administrator/user_manager')) ? 'bg-primary text-light' : 'bg-light text-dark' }}" data-bs-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
+                            <i class="fas fa-fw fa-tachometer-alt mr-2"></i>
+                            User Manager
+                        </a>
+                    </h2>
                 </div>
 
 

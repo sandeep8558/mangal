@@ -12,9 +12,23 @@ class CourseInstrument extends Model
     protected $fillable = [
         'category_id',
         'course_id',
-        'amount',
-        'name',
-        'description',
+        'material_id',
     ];
+
+    public function category(){
+        return $this->belongsTo("App\Models\CourseCategory", 'category_id');
+    }
+
+    public function course(){
+        return $this->belongsTo("App\Models\Course");
+    }
+
+    public function material(){
+        return $this->belongsTo("App\Models\Material");
+    }
+
+    public function course_instrument_purchases(){
+        return $this->hasMany("App\Models\CourseMaterialPurchase");
+    }
     
 }

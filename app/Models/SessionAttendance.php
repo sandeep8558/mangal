@@ -11,8 +11,16 @@ class SessionAttendance extends Model
 
     protected $fillable = [
         'batch_session_id',
-        'student_id',
+        'student_course_id',
         'status',
     ];
+
+    public function batch_session(){
+        return $this->belongsTo("App\Models\BatchSession");
+    }
+
+    public function student(){
+        return $this->belongsTo("App\Models\Student");
+    }
     
 }

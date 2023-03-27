@@ -8,7 +8,7 @@
 import LitsForm from '../../form/NewForm.vue'
 export default {
 
-    props: ['id', 'slots'],
+    props: ['id', 'slots', 'branches'],
 
     components: {
         LitsForm,
@@ -53,6 +53,23 @@ export default {
                 elements : [
 
                     {
+                        label : 'Branch',
+                        name : 'branch_id',
+                        value : '',
+                        values : [],
+                        ObjectValue : {},
+                        options : this.branches,
+                        placeholder : 'Please Select Branch',
+                        type : 'select',
+                        validation : 'required',
+                        class : 'col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 mb-3',
+                        labelClass : '',
+                        hint : 'Please Select Branch',
+                        error : '',
+                        isError : false,
+                        readonly : false,
+                    },
+                    {
                         label : 'Display',
                         name : 'display',
                         value : '',
@@ -66,7 +83,7 @@ export default {
                         placeholder : 'Please Select Display',
                         type : 'select',
                         validation : 'required',
-                        class : 'col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mb-3',
+                        class : 'col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 mb-3',
                         labelClass : '',
                         hint : 'Please Select Display',
                         error : '',
@@ -83,7 +100,7 @@ export default {
                         placeholder : 'Enter Classroom Name',
                         type : 'text',
                         validation : 'required | string',
-                        class : 'col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 mb-3',
+                        class : 'col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3',
                         labelClass : '',
                         hint : 'Please Enter Classroom Name',
                         error : '',
@@ -148,7 +165,7 @@ export default {
                         value : '',
                         values : [],
                         ObjectValue : {},
-                        options : [],
+                        options : this.slots,
                         placeholder : 'Enter Slots',
                         type : 'checkbox',
                         validation : 'required | string',
@@ -184,8 +201,6 @@ export default {
         } else {
             this.formData.id = this.id;
         }
-
-        this.formData.elements[5].options = this.slots;
     },
 
     mounted() {

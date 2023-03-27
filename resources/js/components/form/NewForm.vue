@@ -120,8 +120,8 @@
                     <label class="disable-select text-capitalize" :for="elm.name">{{elm.label}}</label>
                     <span class="d-block disable-select">
                         <span v-for="option in elm.options" :key="option.value" class="d-inline-block">
-                            <input class="" type="checkbox" :id="option.key" :value="option.value" :name="elm.name" v-model="elm.values" @change="removeError(index); sendEvent($event)" :readonly="elm.readonly">
-                            <label :for="option.key" class="mr-3" style="cursor:pointer;">{{option.key}}</label>
+                            <input class="" type="checkbox" :id="elm.name + option.key" :value="option.value" :name="elm.name" v-model="elm.values" @change="removeError(index); sendEvent($event)" :readonly="elm.readonly">
+                            <label :for="elm.name + option.key" class="mr-3" style="cursor:pointer;">{{option.key}}</label>
                         </span>
                     </span>
                     <span v-if="!elm.isError" class="disable-select small text-capitalize text-muted">{{elm.hint}}</span>

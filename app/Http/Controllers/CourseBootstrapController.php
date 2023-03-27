@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CourseCategory;
 use App\Models\AllDocument;
+use App\models\CourseInstrument;
+use App\models\Material;
 
 class CourseBootstrapController extends Controller
 {
@@ -15,6 +17,10 @@ class CourseBootstrapController extends Controller
 
     public function related_documents(){
         return view("administrator.courses_bootstrap.related_documents");
+    }
+
+    public function material(){
+        return view("administrator.courses_bootstrap.material");
     }
 
     public function course_category(){
@@ -48,8 +54,16 @@ class CourseBootstrapController extends Controller
     }
 
     public function course_material(){
+        $materials = Material::get(['name as key', 'id as value']);
         $categories = CourseCategory::get(['category as key', 'id as value']);
-        return view("administrator.courses_bootstrap.course_material", compact("categories"));
+        return view("administrator.courses_bootstrap.course_material", compact("categories", "materials"));
     }
+
+    public function course_material_purchase(){
+        $material = Material::get(['name as key', 'id as value']);
+        return view("administrator.courses_bootstrap.course_material_purchase", compact("material"));
+    }
+
+    
 
 }

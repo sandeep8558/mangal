@@ -16,5 +16,13 @@ class ExamResultMark extends Model
         'obtained_marks',
         'remark',
     ];
+
+    public function ExamResult(){
+        return $this->belongsTo("App\Models\ExamResult");
+    }
+
+    public function subject(){
+        return $this->belongsTo("App\Models\Subject");
+    }
     
 }

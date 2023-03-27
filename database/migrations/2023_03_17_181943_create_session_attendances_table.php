@@ -17,7 +17,7 @@ class CreateSessionAttendancesTable extends Migration
             $table->id();
 
             $table->bigInteger('batch_session_id')->nullable();
-            $table->bigInteger('student_id')->nullable();
+            $table->bigInteger('student_course_id')->nullable();
             $table->set('status', ['Absent', 'Present', 'Short'])->default('Present');
 
             $table->timestamps();

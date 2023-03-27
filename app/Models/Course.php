@@ -28,5 +28,29 @@ class Course extends Model
     public function fee(){
         return $this->hasOne("App\Models\Fee")->latest();
     }
+
+    public function batch_courses(){
+        return $this->hasMany("App\Models\BatchCourse");
+    }
+
+    public function course_documents(){
+        return $this->hasMany("App\Models\CourseDocument");
+    }
+
+    public function course_instruments(){
+        return $this->hasMany("App\Models\CourseInstrument");
+    }
+
+    public function course_sessions(){
+        return $this->hasMany("App\Models\CourseSection");
+    }
+
+    public function fees(){
+        return $this->hasMany("App\Models\Fee");
+    }
+
+    public function subjects(){
+        return $this->hasMany("App\Models\Subject");
+    }
     
 }

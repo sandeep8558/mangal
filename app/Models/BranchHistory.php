@@ -16,5 +16,13 @@ class BranchHistory extends Model
         'effective_till',
         'remark',
     ];
+
+    public function staff(){
+        return $this->belongsTo("App\Models\Staff");
+    }
+
+    public function branch(){
+        return $this->belongsTo("App\Models\Branch");
+    }
     
 }

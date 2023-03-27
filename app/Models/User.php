@@ -55,17 +55,28 @@ class User extends Authenticatable
 
 
     public function isAdministrator(){
-        if(($this->role == 'Administrator' && $this->status == 'Active')||($this->roles()->where('role', 'Administrator')->where('status', 'Active')->exists())){
+        if(($this->role == 'Administrator' && $this->status == 'Active')){
+            return true;
+        }
+        return false;
+    }
+
+    public function isStaff() {
+        if(($this->role == 'Staff' && $this->status == 'Active')){
             return true;
         }
         return false;
     }
 
     public function isCustomer(){
-        if(($this->role == 'Customer' && $this->status == 'Active')||($this->roles()->where('role', 'Customer')->where('status', 'Active')->exists())){
+        if(($this->role == 'Customer' && $this->status == 'Active')){
             return true;
         }
         return false;
+    }
+
+    public function staff(){
+        return $this->hasOne("App\Models\Staff", 'email', 'email');
     }
 
 }

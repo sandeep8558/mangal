@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-<admin-bootstrap-classroom :slots="{{$slots}}"></admin-bootstrap-classroom>
+<admin-bootstrap-classroom :slots="{{$slots}}" :branches="{{$branches}}"></admin-bootstrap-classroom>
 @endsection

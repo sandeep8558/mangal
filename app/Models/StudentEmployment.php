@@ -16,4 +16,8 @@ class StudentEmployment extends Model
         'designation',
         'location',
     ];
+
+    public function student(){
+        return $this->belongsTo("App\Models\Student");
+    }
 }

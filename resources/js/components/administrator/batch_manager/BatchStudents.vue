@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid p-0">
-        <lits-form :formData="formData"></lits-form>
+        <lits-form :formData="formData" @OnChange="change($event)"></lits-form>
     </div>
 </template>
 
@@ -93,7 +93,12 @@ export default {
     methods : {
 
         change(e){
-            /* console.log(e.target.value); */
+            if(e.target.name == "batch_id"){
+                window.axios.post('/administrator/batch_manager/get_students', {batch_id:e.target.value}).then(res => {
+                    //console.log(res);
+                    this.getStudents(res.data);
+                });
+            }
         },
 
         /* getBusinessPlan(){
@@ -102,10 +107,9 @@ export default {
             });
         } */
 
-        getStudents(){
+        getStudents(res){
             let a = [];
-            this.students.forEach(std => {
-                console.log(std);
+            res.forEach(std => {
                 let b = {
                     key: std.student_data,
                     value: std.id
@@ -123,7 +127,7 @@ export default {
             this.formData.id = this.id;
         }
 
-        this.getStudents();
+        //this.getStudents();
     },
 
     mounted() {

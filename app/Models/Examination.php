@@ -13,5 +13,17 @@ class Examination extends Model
         'exam_name',
         'description',
     ];
+
+    public function exam_batches(){
+        return $this->hasMany("App\Models\ExamBatch");
+    }
+
+    public function exam_results(){
+        return $this->hasMany("App\Models\ExamResult");
+    }
+
+    public function exam_subjects(){
+        return $this->hasMany("App\Models\ExamSubjects");
+    }
     
 }

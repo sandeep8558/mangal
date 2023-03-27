@@ -13,5 +13,17 @@ class ExamResult extends Model
         'student_course_id',
         'examination_id',
     ];
+
+    public function examination(){
+        return $this->belongsTo("App\Models\Examination");
+    }
+
+    public function student_course(){
+        return $this->belongsTo("App\Models\StudentCourse");
+    }
+
+    public function exam_result_marks(){
+        return $this->hasMany("App\Models\ExamResultMark");
+    }
     
 }

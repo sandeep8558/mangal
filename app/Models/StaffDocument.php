@@ -15,5 +15,9 @@ class StaffDocument extends Model
         'review',
         'media',
     ];
+
+    public function staff(){
+        return $this->belongsTo("App\Models\Staff");
+    }
     
 }

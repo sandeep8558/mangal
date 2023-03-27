@@ -16,7 +16,7 @@ class CreateBatchSessionsTable extends Migration
         Schema::create('batch_sessions', function (Blueprint $table) {
             $table->id();
 
-            $table->set('status', ['Done', 'Cancelled', 'Postponed', 'Weekoff', 'Holiday'])->default('Done');
+            $table->set('status', ['Pending', 'Done', 'Cancelled', 'Postponed', 'Weekoff', 'Holiday'])->default('Pending');
             $table->bigInteger('staff_id')->nullable();
             $table->bigInteger('batch_id')->nullable();
             $table->bigInteger('classroom_id')->nullable();

@@ -17,5 +17,13 @@ class Fee extends Model
         'fees_amount',
         'remark',
     ];
+
+    public function category(){
+        return $this->belongsTo("App\Models\CourseCategory", "category_id");
+    }
+
+    public function course(){
+        return $this->belongsTo("App\Models\Course");
+    }
     
 }

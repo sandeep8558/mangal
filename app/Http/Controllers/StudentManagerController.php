@@ -7,6 +7,7 @@ use App\Models\CourseCategory;
 use App\Models\Course;
 use App\Models\AllDocument;
 use App\Models\Branch;
+use App\Models\CourseInstrument;
 
 class StudentManagerController extends Controller
 {
@@ -43,6 +44,11 @@ class StudentManagerController extends Controller
     }
 
     public function get_fee(Request $request){
-        return Course::with("fee")->find($request->course_id);
+        $material = CourseInstrument::where("course_id", $request->course_id)->with("material")->get();
+        $fee = Course::with("fee")->find($request->course_id);
+        return [
+            "fee" => $fee,
+            "material" => $material
+        ];
     }
 }

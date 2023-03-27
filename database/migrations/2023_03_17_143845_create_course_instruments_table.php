@@ -18,9 +18,7 @@ class CreateCourseInstrumentsTable extends Migration
 
             $table->bigInteger('category_id')->index();
             $table->bigInteger('course_id')->index();
-            $table->double('amount')->nullable();
-            $table->string('name');
-            $table->string('description')->nullable();
+            $table->bigInteger('material_id')->index();
 
             $table->timestamps();
         });

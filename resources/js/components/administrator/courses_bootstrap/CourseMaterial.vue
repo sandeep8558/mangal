@@ -8,7 +8,7 @@
 import LitsForm from '../../form/NewForm.vue'
 export default {
 
-    props: ['id', 'categories', 'courses'],
+    props: ['id', 'categories', 'materials'],
 
     components: {
         LitsForm,
@@ -46,8 +46,7 @@ export default {
                 display : [
                     { key : 'category_id', val : 'Category ID', type : 'text' },
                     { key : 'course_id', val : 'Course ID', type : 'text' },
-                    { key : 'name', val : 'Material Name', type : 'text' },
-                    { key : 'amount', val : 'Amount', type : 'text' },
+                    { key : 'material_id', val : 'Material ID', type : 'text' },
                 ],
                 elements : [
 
@@ -87,57 +86,25 @@ export default {
                         isError : false,
                         readonly : false,
                     },
+
                     {
-                        label : 'Amount',
-                        name : 'amount',
+                        label : 'Material',
+                        name : 'material_id',
                         value : '',
                         values : [],
                         ObjectValue : {},
-                        options : [],
-                        placeholder : 'Enter Amount',
-                        type : 'text',
-                        validation : 'required | string',
+                        options : this.materials,
+                        placeholder : 'Please Select Material',
+                        type : 'select',
+                        validation : 'required',
                         class : 'col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mb-3',
                         labelClass : '',
-                        hint : 'Please Enter Amount',
+                        hint : 'Please Select Material',
                         error : '',
                         isError : false,
                         readonly : false,
                     },
-                    {
-                        label : 'Material Name',
-                        name : 'name',
-                        value : '',
-                        values : [],
-                        ObjectValue : {},
-                        options : [],
-                        placeholder : 'Enter Material Name',
-                        type : 'text',
-                        validation : 'required | string',
-                        class : 'col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mb-3',
-                        labelClass : '',
-                        hint : 'Please Enter Material Name',
-                        error : '',
-                        isError : false,
-                        readonly : false,
-                    },
-                    {
-                        label : 'Description',
-                        name : 'description',
-                        value : '',
-                        values : [],
-                        ObjectValue : {},
-                        options : [],
-                        placeholder : 'Enter Description',
-                        type : 'text',
-                        validation : 'required | string',
-                        class : 'col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 mb-3',
-                        labelClass : '',
-                        hint : 'Please Enter Description',
-                        error : '',
-                        isError : false,
-                        readonly : false,
-                    },
+
 
                 ],
             },

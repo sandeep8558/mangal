@@ -16,5 +16,9 @@ class EmployeeReview extends Model
         'review_remark',
         'impression',
     ];
+
+    public function staff(){
+        return $this->belongsTo("App\Models\Staff");
+    }
     
 }

@@ -14,5 +14,17 @@ class CourseDocument extends Model
         'course_id',
         'all_document_id',
     ];
+
+    public function category(){
+        return $this->belongsTo("App\Models\CourseCategory", 'category_id');
+    }
+
+    public function course(){
+        return $this->belongsTo("App\Models\Course");
+    }
+
+    public function document(){
+        return $this->belongsTo("App\Models\AllDocument", 'all_document_id');
+    }
     
 }

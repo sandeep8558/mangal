@@ -14,5 +14,17 @@ class BatchCourse extends Model
         'category_id',
         'course_id',
     ];
+
+    public function batch(){
+        return $this->belongsTo("App\Models\Batch");
+    }
+
+    public function category(){
+        return $this->belongsTo("App\Models\CourseCategory", "category_id");
+    }
+
+    public function course(){
+        return $this->belongsTo("App\Models\Course");
+    }
     
 }
