@@ -88,7 +88,37 @@ class StaffController extends Controller
         return $update;
     }
 
-    public function timetable(){
-        return view("staff.timetable");
+    public function timetable(Request $request){
+
+        $today = date("Y-m-d");
+        if(isset($request->dt)){
+            $today = $request->dt;
+        }
+        $next = strtotime($today);
+        $next = strtotime("+7 day", $next);
+        $next = date('Y-m-d', $next);
+
+        $prev = strtotime($today);
+        $prev = strtotime("-7 day", $prev);
+        $prev = date('Y-m-d', $prev);
+
+        $email = Auth::user()->email;
+        $staff = Staff::where('email', $email)->latest()->first();
+        
+        $batches = $staff
+        ->batch_faculties()
+        ->whereHas("open_batch", function($q) use($today, $next){
+            $q
+            ->whereDate("effective_from", "<", $next)
+            ->whereDate("effective_till", ">=", $today);
+        })
+        /* ->with("open_batch", function($qq) use($today) {
+            $qq
+            ->with("batch_students")
+            ->with("batch_sessions");
+        }) */
+        ->get();
+
+        return view("staff.timetable", compact("prev", "today", "next", "batches"));
     }
 }
