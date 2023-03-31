@@ -13369,6 +13369,260 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/staff/Exam.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/staff/Exam.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_debounce__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-debounce */ "./node_modules/vue-debounce/dist/vue-debounce.min.js");
+/* harmony import */ var vue_debounce__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_debounce__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* interface Classroom {
+    rooms: [],
+    slots: [],
+} */
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['batches', 'staffs', 'classrooms'],
+  components: {},
+  data: function data() {
+    return {
+      addNew: true,
+      validation: false,
+      selectedBatches: [],
+      examSubjects: [],
+      req: {
+        id: null,
+        exam_name: null,
+        batches: [],
+        students: [],
+        subjects: []
+      },
+      step: {
+        active: 0,
+        first: 0,
+        last: 2
+      }
+    };
+  },
+  methods: {
+    save: function save() {
+      console.log(this.req);
+    },
+    setStudents: function setStudents() {
+      var _this = this;
+
+      this.validate();
+      var b = [];
+      var s = [];
+
+      if (this.req.batches.length > 0) {
+        this.req.batches.forEach(function (batch_id, i) {
+          _this.batches.forEach(function (batch) {
+            if (batch_id == batch.batch_id) {
+              b.push(batch);
+              batch.open_batch.batch_courses.forEach(function (bc) {
+                bc.course.subjects.forEach(function (sub) {
+                  if (sub.status == "Active") {
+                    sub.course = bc.course.course;
+                    s.push(sub);
+                  }
+                });
+              });
+            }
+          });
+        });
+      }
+
+      this.selectedBatches = b;
+      this.examSubjects = s;
+      this.setSubjects();
+    },
+    makeSlots: function makeSlots() {
+      console.log(this.req);
+    },
+    setSubjects: function setSubjects() {
+      var subs = [];
+      this.examSubjects.forEach(function (sub) {
+        var s = {
+          subject_id: sub.id,
+          dt: null,
+          total_marks: 100,
+          invigilator: [],
+          classrooms: {
+            rooms: [],
+            slots: []
+          }
+        };
+        subs.push(s);
+      });
+      this.req.subjects = subs;
+      this.step.last += this.req.subjects.length;
+    },
+    validate: Object(vue_debounce__WEBPACK_IMPORTED_MODULE_0__["debounce"])(function () {
+      this.validation = false;
+
+      switch (this.step.active) {
+        case 0:
+          this.validation = this.req.exam_name != null && this.req.exam_name != "" ? true : false;
+          break;
+
+        case 1:
+          this.validation = this.req.batches.length > 0 ? true : false;
+          break;
+
+        case 2:
+          this.validation = this.req.students.length > 0 ? true : false;
+          break;
+
+        case 3:
+          this.validation = true;
+          break;
+
+        case 4:
+          this.validation = true;
+          break;
+      }
+    }, 100),
+    navigateForm: function navigateForm(what) {
+      this.validate();
+
+      if (what == 'prev') {
+        if (this.step.active > this.step.first) {
+          this.step.active -= 1;
+        }
+      }
+
+      if (what == 'next') {
+        if (this.step.active < this.step.last) {
+          this.step.active += 1;
+        }
+      }
+    }
+    /* getBusinessPlan(){
+        window.axios.get('/auth/crud/showall?model=BusinessPlan&key=plan_name&val=id').then(res => {
+            this.formData.elements[1].options = res.data;
+        });
+    } */
+
+  },
+  created: function created() {
+    this.validate();
+  },
+  mounted: function mounted() {}
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/staff/SessionStart.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/staff/SessionStart.vue?vue&type=script&lang=js& ***!
@@ -52547,6 +52801,811 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/staff/Exam.vue?vue&type=template&id=d82ea0ce&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/staff/Exam.vue?vue&type=template&id=d82ea0ce& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container-fluid p-0" }, [
+    _c("div", { staticClass: "container-fluid mb-5" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn",
+          class: [_vm.addNew ? "btn-danger" : "btn-primary"],
+          on: {
+            click: function($event) {
+              _vm.addNew = !_vm.addNew
+            }
+          }
+        },
+        [_vm._v(_vm._s(_vm.addNew ? "Close Form" : "Add New Exam"))]
+      )
+    ]),
+    _vm._v(" "),
+    _vm.addNew
+      ? _c(
+          "div",
+          [
+            _vm.step.active == 0
+              ? _c("div", { staticClass: "row m-0" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-12 mb-3" }, [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "form-label",
+                        attrs: { for: "exam_name" }
+                      },
+                      [_vm._v("Exam Name")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.req.exam_name,
+                          expression: "req.exam_name"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "exam_name",
+                        name: "exam_name"
+                      },
+                      domProps: { value: _vm.req.exam_name },
+                      on: {
+                        input: [
+                          function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.req, "exam_name", $event.target.value)
+                          },
+                          function($event) {
+                            return _vm.validate()
+                          }
+                        ]
+                      }
+                    })
+                  ])
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.step.active == 1
+              ? _c("div", { staticClass: "row m-0" }, [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-12 mb-3" },
+                    _vm._l(_vm.batches, function(batch) {
+                      return _c(
+                        "div",
+                        { key: batch.open_batch.id, staticClass: "form-check" },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.req.batches,
+                                expression: "req.batches"
+                              }
+                            ],
+                            staticClass: "form-check-input",
+                            attrs: {
+                              type: "checkbox",
+                              id: "batch" + batch.open_batch.id
+                            },
+                            domProps: {
+                              value: batch.open_batch.id,
+                              checked: Array.isArray(_vm.req.batches)
+                                ? _vm._i(_vm.req.batches, batch.open_batch.id) >
+                                  -1
+                                : _vm.req.batches
+                            },
+                            on: {
+                              change: [
+                                function($event) {
+                                  var $$a = _vm.req.batches,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? true : false
+                                  if (Array.isArray($$a)) {
+                                    var $$v = batch.open_batch.id,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        _vm.$set(
+                                          _vm.req,
+                                          "batches",
+                                          $$a.concat([$$v])
+                                        )
+                                    } else {
+                                      $$i > -1 &&
+                                        _vm.$set(
+                                          _vm.req,
+                                          "batches",
+                                          $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1))
+                                        )
+                                    }
+                                  } else {
+                                    _vm.$set(_vm.req, "batches", $$c)
+                                  }
+                                },
+                                function($event) {
+                                  return _vm.setStudents()
+                                }
+                              ]
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            {
+                              staticClass: "form-check-label",
+                              attrs: {
+                                for: "batch" + batch.open_batch.id,
+                                name: "batches"
+                              }
+                            },
+                            [_vm._v(_vm._s(batch.open_batch.batch_name))]
+                          )
+                        ]
+                      )
+                    }),
+                    0
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.step.active == 2
+              ? _c("div", { staticClass: "row m-0" }, [
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-12 mb-3" },
+                    _vm._l(_vm.selectedBatches, function(bat) {
+                      return _c(
+                        "div",
+                        { key: bat.open_batch.id },
+                        _vm._l(bat.open_batch.batch_students, function(b) {
+                          return _c(
+                            "div",
+                            {
+                              key: b.student_course_id,
+                              staticClass: "form-check"
+                            },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.req.students,
+                                    expression: "req.students"
+                                  }
+                                ],
+                                staticClass: "form-check-input",
+                                attrs: {
+                                  type: "checkbox",
+                                  id: "student" + b.student_course.id
+                                },
+                                domProps: {
+                                  value: b.student_course.id,
+                                  checked: Array.isArray(_vm.req.students)
+                                    ? _vm._i(
+                                        _vm.req.students,
+                                        b.student_course.id
+                                      ) > -1
+                                    : _vm.req.students
+                                },
+                                on: {
+                                  change: [
+                                    function($event) {
+                                      var $$a = _vm.req.students,
+                                        $$el = $event.target,
+                                        $$c = $$el.checked ? true : false
+                                      if (Array.isArray($$a)) {
+                                        var $$v = b.student_course.id,
+                                          $$i = _vm._i($$a, $$v)
+                                        if ($$el.checked) {
+                                          $$i < 0 &&
+                                            _vm.$set(
+                                              _vm.req,
+                                              "students",
+                                              $$a.concat([$$v])
+                                            )
+                                        } else {
+                                          $$i > -1 &&
+                                            _vm.$set(
+                                              _vm.req,
+                                              "students",
+                                              $$a
+                                                .slice(0, $$i)
+                                                .concat($$a.slice($$i + 1))
+                                            )
+                                        }
+                                      } else {
+                                        _vm.$set(_vm.req, "students", $$c)
+                                      }
+                                    },
+                                    function($event) {
+                                      return _vm.validate()
+                                    }
+                                  ]
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "label",
+                                {
+                                  staticClass: "form-check-label",
+                                  attrs: {
+                                    for: "student" + b.student_course.id,
+                                    name: "students"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(b.student_course.student.fname) +
+                                      " " +
+                                      _vm._s(b.student_course.student.mname) +
+                                      " " +
+                                      _vm._s(b.student_course.student.lname)
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        }),
+                        0
+                      )
+                    }),
+                    0
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._l(_vm.examSubjects, function(sub, index) {
+              return _c("div", { key: sub.id }, [
+                _vm.step.active ==
+                _vm.step.last - _vm.req.subjects.length + index + 1
+                  ? _c("div", { staticClass: "row m-0" }, [
+                      _vm._m(3, true),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-12 mb-3" }, [
+                        _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "col-12 mb-3" }, [
+                            _c("b", [
+                              _vm._v(
+                                _vm._s(sub.course) + " - " + _vm._s(sub.subject)
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-6 mb-3" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "form-label",
+                                attrs: { for: "dt" }
+                              },
+                              [_vm._v(_vm._s(sub.subject) + " Exam Date")]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.req.subjects[index].dt,
+                                  expression: "req.subjects[index].dt"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: { type: "date", id: "dt", name: "dt" },
+                              domProps: { value: _vm.req.subjects[index].dt },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.req.subjects[index],
+                                    "dt",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-6 mb-3" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "form-label",
+                                attrs: { for: "total_marks" }
+                              },
+                              [_vm._v(_vm._s(sub.subject) + " Total Marks")]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.req.subjects[index].total_marks,
+                                  expression: "req.subjects[index].total_marks"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "text",
+                                id: "total_marks",
+                                name: "total_marks"
+                              },
+                              domProps: {
+                                value: _vm.req.subjects[index].total_marks
+                              },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.req.subjects[index],
+                                    "total_marks",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "col-12 mb-3" },
+                            [
+                              _c("label", { staticClass: "form-label" }, [
+                                _vm._v(
+                                  "Select invigilator for " +
+                                    _vm._s(sub.subject)
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _vm._l(_vm.staffs, function(staff, i) {
+                                return _c(
+                                  "div",
+                                  { key: staff.id, staticClass: "form-check" },
+                                  [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.req.subjects[index].invigilator,
+                                          expression:
+                                            "req.subjects[index].invigilator"
+                                        }
+                                      ],
+                                      staticClass: "form-check-input",
+                                      attrs: {
+                                        type: "checkbox",
+                                        id: "invigilator" + staff.id + i
+                                      },
+                                      domProps: {
+                                        value: staff.id,
+                                        checked: Array.isArray(
+                                          _vm.req.subjects[index].invigilator
+                                        )
+                                          ? _vm._i(
+                                              _vm.req.subjects[index]
+                                                .invigilator,
+                                              staff.id
+                                            ) > -1
+                                          : _vm.req.subjects[index].invigilator
+                                      },
+                                      on: {
+                                        change: function($event) {
+                                          var $$a =
+                                              _vm.req.subjects[index]
+                                                .invigilator,
+                                            $$el = $event.target,
+                                            $$c = $$el.checked ? true : false
+                                          if (Array.isArray($$a)) {
+                                            var $$v = staff.id,
+                                              $$i = _vm._i($$a, $$v)
+                                            if ($$el.checked) {
+                                              $$i < 0 &&
+                                                _vm.$set(
+                                                  _vm.req.subjects[index],
+                                                  "invigilator",
+                                                  $$a.concat([$$v])
+                                                )
+                                            } else {
+                                              $$i > -1 &&
+                                                _vm.$set(
+                                                  _vm.req.subjects[index],
+                                                  "invigilator",
+                                                  $$a
+                                                    .slice(0, $$i)
+                                                    .concat($$a.slice($$i + 1))
+                                                )
+                                            }
+                                          } else {
+                                            _vm.$set(
+                                              _vm.req.subjects[index],
+                                              "invigilator",
+                                              $$c
+                                            )
+                                          }
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "label",
+                                      {
+                                        staticClass: "form-check-label",
+                                        attrs: {
+                                          for: "invigilator" + staff.id + i
+                                        }
+                                      },
+                                      [_vm._v(_vm._s(staff.employee_name))]
+                                    )
+                                  ]
+                                )
+                              })
+                            ],
+                            2
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "col-12 mb-3" },
+                            [
+                              _c("label", { staticClass: "form-label" }, [
+                                _vm._v("Please select Classrooms")
+                              ]),
+                              _vm._v(" "),
+                              _vm._l(_vm.classrooms, function(classroom, ii) {
+                                return _c(
+                                  "div",
+                                  { key: classroom.id },
+                                  [
+                                    _c("div", { staticClass: "form-check" }, [
+                                      _c("input", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value:
+                                              _vm.req.subjects[index].classrooms
+                                                .rooms,
+                                            expression:
+                                              "req.subjects[index].classrooms.rooms"
+                                          }
+                                        ],
+                                        staticClass: "form-check-input",
+                                        attrs: {
+                                          type: "checkbox",
+                                          id: "classroom" + classroom.id
+                                        },
+                                        domProps: {
+                                          value: classroom.id,
+                                          checked: Array.isArray(
+                                            _vm.req.subjects[index].classrooms
+                                              .rooms
+                                          )
+                                            ? _vm._i(
+                                                _vm.req.subjects[index]
+                                                  .classrooms.rooms,
+                                                classroom.id
+                                              ) > -1
+                                            : _vm.req.subjects[index].classrooms
+                                                .rooms
+                                        },
+                                        on: {
+                                          change: [
+                                            function($event) {
+                                              var $$a =
+                                                  _vm.req.subjects[index]
+                                                    .classrooms.rooms,
+                                                $$el = $event.target,
+                                                $$c = $$el.checked
+                                                  ? true
+                                                  : false
+                                              if (Array.isArray($$a)) {
+                                                var $$v = classroom.id,
+                                                  $$i = _vm._i($$a, $$v)
+                                                if ($$el.checked) {
+                                                  $$i < 0 &&
+                                                    _vm.$set(
+                                                      _vm.req.subjects[index]
+                                                        .classrooms,
+                                                      "rooms",
+                                                      $$a.concat([$$v])
+                                                    )
+                                                } else {
+                                                  $$i > -1 &&
+                                                    _vm.$set(
+                                                      _vm.req.subjects[index]
+                                                        .classrooms,
+                                                      "rooms",
+                                                      $$a
+                                                        .slice(0, $$i)
+                                                        .concat(
+                                                          $$a.slice($$i + 1)
+                                                        )
+                                                    )
+                                                }
+                                              } else {
+                                                _vm.$set(
+                                                  _vm.req.subjects[index]
+                                                    .classrooms,
+                                                  "rooms",
+                                                  $$c
+                                                )
+                                              }
+                                            },
+                                            function($event) {
+                                              return _vm.makeSlots()
+                                            }
+                                          ]
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass: "form-check-label",
+                                          attrs: {
+                                            for: "classroom" + classroom.id
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            _vm._s(classroom.classroom_name)
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _vm._l(classroom.slts, function(slot, iii) {
+                                      return _c(
+                                        "div",
+                                        {
+                                          key: slot.id,
+                                          staticClass: "form-check"
+                                        },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value:
+                                                  _vm.req.subjects[index]
+                                                    .classrooms.slots[iii],
+                                                expression:
+                                                  "req.subjects[index].classrooms.slots[iii]"
+                                              }
+                                            ],
+                                            staticClass: "form-check-input",
+                                            attrs: {
+                                              type: "checkbox",
+                                              name: "slot" + slot.id + "-" + ii,
+                                              id: "slot" + slot.id + "-" + ii
+                                            },
+                                            domProps: {
+                                              value: slot.id,
+                                              checked: Array.isArray(
+                                                _vm.req.subjects[index]
+                                                  .classrooms.slots[iii]
+                                              )
+                                                ? _vm._i(
+                                                    _vm.req.subjects[index]
+                                                      .classrooms.slots[iii],
+                                                    slot.id
+                                                  ) > -1
+                                                : _vm.req.subjects[index]
+                                                    .classrooms.slots[iii]
+                                            },
+                                            on: {
+                                              change: function($event) {
+                                                var $$a =
+                                                    _vm.req.subjects[index]
+                                                      .classrooms.slots[iii],
+                                                  $$el = $event.target,
+                                                  $$c = $$el.checked
+                                                    ? true
+                                                    : false
+                                                if (Array.isArray($$a)) {
+                                                  var $$v = slot.id,
+                                                    $$i = _vm._i($$a, $$v)
+                                                  if ($$el.checked) {
+                                                    $$i < 0 &&
+                                                      _vm.$set(
+                                                        _vm.req.subjects[index]
+                                                          .classrooms.slots,
+                                                        iii,
+                                                        $$a.concat([$$v])
+                                                      )
+                                                  } else {
+                                                    $$i > -1 &&
+                                                      _vm.$set(
+                                                        _vm.req.subjects[index]
+                                                          .classrooms.slots,
+                                                        iii,
+                                                        $$a
+                                                          .slice(0, $$i)
+                                                          .concat(
+                                                            $$a.slice($$i + 1)
+                                                          )
+                                                      )
+                                                  }
+                                                } else {
+                                                  _vm.$set(
+                                                    _vm.req.subjects[index]
+                                                      .classrooms.slots,
+                                                    iii,
+                                                    $$c
+                                                  )
+                                                }
+                                              }
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass: "form-check-label",
+                                              attrs: {
+                                                for: "slot" + slot.id + "-" + ii
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(slot.name) +
+                                                  " " +
+                                                  _vm._s(
+                                                    "slot" + slot.id + "-" + ii
+                                                  )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    })
+                                  ],
+                                  2
+                                )
+                              })
+                            ],
+                            2
+                          )
+                        ])
+                      ])
+                    ])
+                  : _vm._e()
+              ])
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "container-fluid mb-3" }, [
+              _vm.step.active != _vm.step.first
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-outline-primary",
+                      class: [
+                        _vm.step.active == _vm.step.first ? "disabled" : ""
+                      ],
+                      on: {
+                        click: function($event) {
+                          return _vm.navigateForm("prev")
+                        }
+                      }
+                    },
+                    [_vm._v("Previous")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.step.active != _vm.step.last
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-outline-primary",
+                      class: [_vm.validation ? "" : "disabled"],
+                      on: {
+                        click: function($event) {
+                          return _vm.navigateForm("next")
+                        }
+                      }
+                    },
+                    [_vm._v("Next")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.step.active == _vm.step.last
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      on: {
+                        click: function($event) {
+                          return _vm.save()
+                        }
+                      }
+                    },
+                    [_vm._v("Save Exam")]
+                  )
+                : _vm._e()
+            ])
+          ],
+          2
+        )
+      : _vm._e()
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 mb-3" }, [
+      _c("h4", [_c("u", [_vm._v("Exam Name & Description")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 mb-3" }, [
+      _c("h4", [_c("u", [_vm._v("Exam Batches")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 mb-3" }, [
+      _c("h4", [_c("u", [_vm._v("Exam Students")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 mb-3" }, [
+      _c("h4", [_c("u", [_vm._v("Exam Subjects and Invigilator")])])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/staff/SessionStart.vue?vue&type=template&id=33308666&":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/staff/SessionStart.vue?vue&type=template&id=33308666& ***!
@@ -65051,6 +66110,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_administrator_exam_result_manager_Exam_vue__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/administrator/exam_result_manager/Exam.vue */ "./resources/js/components/administrator/exam_result_manager/Exam.vue");
 /* harmony import */ var _components_staff_SessionStart_vue__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/staff/SessionStart.vue */ "./resources/js/components/staff/SessionStart.vue");
 /* harmony import */ var _components_staff_Switch_vue__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/staff/Switch.vue */ "./resources/js/components/staff/Switch.vue");
+/* harmony import */ var _components_staff_Exam_vue__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/staff/Exam.vue */ "./resources/js/components/staff/Exam.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -65128,6 +66188,7 @@ Vue.use(vue_debounce__WEBPACK_IMPORTED_MODULE_0___default.a);
 
 
 
+
 var app = new Vue({
   el: '#app',
   components: {
@@ -65169,7 +66230,8 @@ var app = new Vue({
 
     /* Staff Components */
     StaffSessionStart: _components_staff_SessionStart_vue__WEBPACK_IMPORTED_MODULE_36__["default"],
-    StaffSwitch: _components_staff_Switch_vue__WEBPACK_IMPORTED_MODULE_37__["default"]
+    StaffSwitch: _components_staff_Switch_vue__WEBPACK_IMPORTED_MODULE_37__["default"],
+    StaffExam: _components_staff_Exam_vue__WEBPACK_IMPORTED_MODULE_38__["default"]
   }
 });
 
@@ -67717,6 +68779,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewForm_vue_vue_type_template_id_6bfc9938_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewForm_vue_vue_type_template_id_6bfc9938_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/staff/Exam.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/staff/Exam.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Exam_vue_vue_type_template_id_d82ea0ce___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Exam.vue?vue&type=template&id=d82ea0ce& */ "./resources/js/components/staff/Exam.vue?vue&type=template&id=d82ea0ce&");
+/* harmony import */ var _Exam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Exam.vue?vue&type=script&lang=js& */ "./resources/js/components/staff/Exam.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Exam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Exam_vue_vue_type_template_id_d82ea0ce___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Exam_vue_vue_type_template_id_d82ea0ce___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/staff/Exam.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/staff/Exam.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/staff/Exam.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Exam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Exam.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/staff/Exam.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Exam_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/staff/Exam.vue?vue&type=template&id=d82ea0ce&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/staff/Exam.vue?vue&type=template&id=d82ea0ce& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Exam_vue_vue_type_template_id_d82ea0ce___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Exam.vue?vue&type=template&id=d82ea0ce& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/staff/Exam.vue?vue&type=template&id=d82ea0ce&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Exam_vue_vue_type_template_id_d82ea0ce___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Exam_vue_vue_type_template_id_d82ea0ce___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

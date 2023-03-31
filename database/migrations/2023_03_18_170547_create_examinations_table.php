@@ -17,7 +17,6 @@ class CreateExaminationsTable extends Migration
             $table->id();
 
             $table->string('exam_name')->nullable();
-            $table->string('description')->nullable();
 
             $table->timestamps();
         });

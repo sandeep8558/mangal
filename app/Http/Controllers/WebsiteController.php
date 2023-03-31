@@ -25,6 +25,11 @@ use App\Models\BranchHistory;
 use App\Models\SalaryHistory;
 
 use App\Models\Student;
+use App\Models\StudentCourse;
+use App\Models\Batch;
+use App\Models\BatchCourse;
+use App\Models\BatchFaculty;
+use App\Models\BatchStudent;
 
 use Illuminate\Http\Request;
 
@@ -41,12 +46,21 @@ class WebsiteController extends Controller
     }
 
     public function bootstrap(){
-        User::create([
-            "name" => "Sandeep Rathod",
-            "mobile" => "9664588677",
-            "email" => "sandeep198558@yahoo.com",
-            "password" => Hash::make("123456789"),
-            "role" => "Administrator",
+        User::insert([
+            [
+                "name" => "Sandeep Rathod",
+                "mobile" => "9664588677",
+                "email" => "sandeep198558@yahoo.com",
+                "password" => Hash::make("123456789"),
+                "role" => "Administrator",
+            ],
+            [
+                "name" => "Leena Adam",
+                "mobile" => "9769409405",
+                "email" => "leenaadam28@gmail.com",
+                "password" => Hash::make("123456789"),
+                "role" => "Staff",
+            ],
         ]);
 
         Branch::create([
@@ -459,10 +473,10 @@ class WebsiteController extends Controller
 
         Staff::insert([
             [
-                "employee_name"=>"Sandeep Rathod",
-                "dob"=>"1985-10-27",
+                "employee_name"=>"Leena Adam",
+                "dob"=>"1990-04-28",
                 "joining"=>"2023-03-01",
-                "gender"=>"Male",
+                "gender"=>"Female",
                 "blood_group"=>"O+",
                 "aadhar"=>"123412341234",
                 "pan"=>"AKTPR2313Q",
@@ -472,7 +486,7 @@ class WebsiteController extends Controller
                 "state"=>"Maharashtra",
                 "country"=>"India",
                 "contact_number"=>"9664588677",
-                "email"=>"sandeep198558@yahoo.com",
+                "email"=>"leenaadam28@gmail.com",
             ],
             [
                 "employee_name"=>"Kiran Gaikwad",
@@ -585,6 +599,115 @@ class WebsiteController extends Controller
                 "parents_number"=>"9664588677",
                 "instagram_id"=>"peterdas",
                 "facebook_id"=>"peterdas",
+            ],
+        ]);
+
+        StudentCourse::insert([
+            [
+                "branch_id" => "1",
+                "student_id" => "1",
+                "category_id" => "1",
+                "course_id" => "1",
+                "course_instrument_id" => "2",
+                "actual_fees_amount" => "3000",
+                "instrument_amount" => "500",
+                "discount" => "0",
+                "fees_amount" => "3500",
+                "admission_at" => "2023-03-01",
+                "effective_from" => "2023-03-01",
+                "effective_till" => "2023-04-30",
+            ],
+            [
+                "branch_id" => "1",
+                "student_id" => "2",
+                "category_id" => "1",
+                "course_id" => "1",
+                "course_instrument_id" => "2",
+                "actual_fees_amount" => "3000",
+                "instrument_amount" => "500",
+                "discount" => "0",
+                "fees_amount" => "3500",
+                "admission_at" => "2023-03-01",
+                "effective_from" => "2023-03-01",
+                "effective_till" => "2023-04-30",
+            ],
+        ]);
+
+        Batch::insert([
+            [
+                "branch_id" => "1",
+                "classroom_type" => "Fixed",
+                "classroom_id" => "2",
+                "batch_name" => "English Typing Morning",
+                "effective_from" => "2023-03-01",
+                "effective_till" => "2023-04-30",
+                "sessions" => "10",
+                "batch_type" => "Daily",
+                "mon_slots" => "1",
+                "tue_slots" => "1",
+                "wed_slots" => "1",
+                "thu_slots" => "1",
+                "fri_slots" => "1",
+                "sat_slots" => "1",
+                "sun_slots" => "1",
+                "status" => "On Going",
+                "syllabus" => "Pending",
+                "markentry" => "Pending",
+            ],
+            [
+                "branch_id" => "1",
+                "classroom_type" => "Fixed",
+                "classroom_id" => "2",
+                "batch_name" => "Hindi Typing Morning",
+                "effective_from" => "2023-03-01",
+                "effective_till" => "2023-03-31",
+                "sessions" => "10",
+                "batch_type" => "Daily",
+                "mon_slots" => "2",
+                "tue_slots" => "2",
+                "wed_slots" => "2",
+                "thu_slots" => "2",
+                "fri_slots" => "2",
+                "sat_slots" => "2",
+                "sun_slots" => "2",
+                "status" => "On Going",
+                "syllabus" => "Pending",
+                "markentry" => "Pending",
+            ],
+        ]);
+
+        BatchCourse::insert([
+            [
+                "batch_id" => "1",
+                "category_id" => "1",
+                "course_id" => "1",
+            ],
+            [
+                "batch_id" => "2",
+                "category_id" => "1",
+                "course_id" => "2",
+            ],
+        ]);
+
+        BatchFaculty::insert([
+            [
+                "batch_id" => "1",
+                "staff_id" => "1",
+            ],
+            [
+                "batch_id" => "2",
+                "staff_id" => "1",
+            ],
+        ]);
+
+        BatchStudent::insert([
+            [
+                "batch_id" => "1",
+                "student_course_id" => "1",
+            ],
+            [
+                "batch_id" => "1",
+                "student_course_id" => "2",
             ],
         ]);
     }

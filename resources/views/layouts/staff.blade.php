@@ -47,32 +47,24 @@
                     </h2>
                 </div>
 
-                
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingFeesAndCollection">
-                        <button class="accordion-button {{ (request()->is('mystaff/staff_manager*')) ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFeesAndCollection" aria-expanded="false" aria-controls="collapseFeesAndCollection">
-                            <i class="fas fa-fw fa-tachometer-alt mr-2"></i>
-                            Fees & Collection
-                        </button>
-                    </h2>
-                    <div id="collapseFeesAndCollection" class="accordion-collapse collapse {{ (request()->is('mystaff/staff_manager*')) ? 'show' : '' }}" aria-labelledby="headingFeesAndCollection" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <ul class="list-group list-group-flush d-grid p-0">
-                                <li class="list-group-item"><a class="btn btn-default btn-sm btn-full border-0 {{ (request()->is('mystaff/staff_manager/accreditation')) ? 'fw-bold' : '' }}" href="/mystaff/staff_manager/accreditation">Accreditation</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
                 <div class="accordion-item bg-primary">
                     <h2 class="accordion-header" id="headingOne">
-                        <a href="/mystaff/settings" class="btn accordion-button collapsed no-caret {{ (request()->is('mystaff/settings')) ? 'bg-primary text-light' : 'bg-light text-dark' }}" data-bs-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
+                        <a href="/mystaff/exam" class="btn accordion-button collapsed no-caret {{ (request()->is('mystaff/exam')) ? 'bg-primary text-light' : 'bg-light text-dark' }}" data-bs-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
                             <i class="fas fa-fw fa-tachometer-alt mr-2"></i>
-                            Settings
+                            Exam Manager
                         </a>
                     </h2>
                 </div>
+
+                <div class="accordion-item bg-primary">
+                    <h2 class="accordion-header" id="headingOne">
+                        <a href="/mystaff/result" class="btn accordion-button collapsed no-caret {{ (request()->is('mystaff/result')) ? 'bg-primary text-light' : 'bg-light text-dark' }}" data-bs-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
+                            <i class="fas fa-fw fa-tachometer-alt mr-2"></i>
+                            Result Manager
+                        </a>
+                    </h2>
+                </div>
+
 
                 <!-- <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">

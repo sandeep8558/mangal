@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ClassroomSlot;
 
 class Classroom extends Model
 {
@@ -29,6 +30,13 @@ class Classroom extends Model
 
     public function exam_subjects(){
         return $this->hasMany("App\Models\ExamSubject");
+    }
+
+    protected $appends = ['slts'];
+
+    public function getSltsAttribute(){
+        $s = explode(",",$this->slots);
+        return ClassroomSlot::whereIn("id", $s)->get();
     }
     
 }

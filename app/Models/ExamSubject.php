@@ -10,11 +10,10 @@ class ExamSubject extends Model
     use HasFactory;
 
     protected $fillable = [
-        'classroom_id',
         'examination_id',
         'subject_id',
         'dt',
-        'slots',
+        'total_marks',
     ];
 
     public function examination(){

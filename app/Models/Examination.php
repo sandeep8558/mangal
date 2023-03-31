@@ -11,7 +11,6 @@ class Examination extends Model
 
     protected $fillable = [
         'exam_name',
-        'description',
     ];
 
     public function exam_batches(){

@@ -103,6 +103,7 @@ import AdminExamResultManagerExam from './components/administrator/exam_result_m
 /* Staff Components */
 import StaffSessionStart from './components/staff/SessionStart.vue';
 import StaffSwitch from './components/staff/Switch.vue';
+import StaffExam from './components/staff/Exam.vue';
 
 
 const app = new Vue({
@@ -153,5 +154,6 @@ const app = new Vue({
         /* Staff Components */
         StaffSessionStart,
         StaffSwitch,
+        StaffExam,
     }
 });

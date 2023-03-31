@@ -11,6 +11,13 @@ use App\Models\SessionAttendance;
 
 class StaffController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
+
     public function staff(Request $request){
         $today = date("Y-m-d");
         if(isset($request->dt)){
@@ -120,5 +127,43 @@ class StaffController extends Controller
         ->get();
 
         return view("staff.timetable", compact("prev", "today", "next", "batches"));
+    }
+
+    public function exam(){
+
+        $today = date("Y-m-d");
+        if(isset($request->dt)){
+            $today = $request->dt;
+        }
+        $email = Auth::user()->email;
+        $staff = Staff::where('email', $email)->latest()->first();
+        
+        $batches = $staff
+        ->batch_faculties()
+        ->whereHas("open_batch", function($q){
+            $q
+            ->where("syllabus", "Completed")
+            ->where("status", "On Going");
+        })
+        ->with("open_batch", function($qq) {
+            $qq
+            ->with("batch_students")
+            ->with("batch_courses", function($qqq){
+                $qqq->with("course", function($qqqq){
+                    $qqqq->with("subjects");
+                });
+            });
+        })
+        ->get();
+
+        $staffs = Staff::where("exit", null)->orWhere("exit", "")->get();
+
+        $classrooms = $branch_id = $staff->branch_histories()->latest()->first()->branch->classrooms;
+
+        return view("staff.exam", compact("batches", "today", "staffs", "classrooms"));
+    }
+
+    public function result(){
+        return view("staff.result");
     }
 }
