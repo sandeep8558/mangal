@@ -13558,10 +13558,8 @@ __webpack_require__.r(__webpack_exports__);
           dt: null,
           total_marks: 100,
           invigilator: [],
-          classrooms: {
-            rooms: [],
-            slots: []
-          }
+          classrooms: [],
+          slots: []
         };
         subs.push(s);
       });
@@ -53299,10 +53297,10 @@ var render = function() {
                                             name: "model",
                                             rawName: "v-model",
                                             value:
-                                              _vm.req.subjects[index].classrooms
-                                                .rooms,
+                                              _vm.req.subjects[index]
+                                                .classrooms,
                                             expression:
-                                              "req.subjects[index].classrooms.rooms"
+                                              "req.subjects[index].classrooms"
                                           }
                                         ],
                                         staticClass: "form-check-input",
@@ -53314,22 +53312,20 @@ var render = function() {
                                           value: classroom.id,
                                           checked: Array.isArray(
                                             _vm.req.subjects[index].classrooms
-                                              .rooms
                                           )
                                             ? _vm._i(
                                                 _vm.req.subjects[index]
-                                                  .classrooms.rooms,
+                                                  .classrooms,
                                                 classroom.id
                                               ) > -1
                                             : _vm.req.subjects[index].classrooms
-                                                .rooms
                                         },
                                         on: {
                                           change: [
                                             function($event) {
                                               var $$a =
                                                   _vm.req.subjects[index]
-                                                    .classrooms.rooms,
+                                                    .classrooms,
                                                 $$el = $event.target,
                                                 $$c = $$el.checked
                                                   ? true
@@ -53340,17 +53336,15 @@ var render = function() {
                                                 if ($$el.checked) {
                                                   $$i < 0 &&
                                                     _vm.$set(
-                                                      _vm.req.subjects[index]
-                                                        .classrooms,
-                                                      "rooms",
+                                                      _vm.req.subjects[index],
+                                                      "classrooms",
                                                       $$a.concat([$$v])
                                                     )
                                                 } else {
                                                   $$i > -1 &&
                                                     _vm.$set(
-                                                      _vm.req.subjects[index]
-                                                        .classrooms,
-                                                      "rooms",
+                                                      _vm.req.subjects[index],
+                                                      "classrooms",
                                                       $$a
                                                         .slice(0, $$i)
                                                         .concat(
@@ -53360,9 +53354,8 @@ var render = function() {
                                                 }
                                               } else {
                                                 _vm.$set(
-                                                  _vm.req.subjects[index]
-                                                    .classrooms,
-                                                  "rooms",
+                                                  _vm.req.subjects[index],
+                                                  "classrooms",
                                                   $$c
                                                 )
                                               }
@@ -53399,80 +53392,13 @@ var render = function() {
                                         },
                                         [
                                           _c("input", {
-                                            directives: [
-                                              {
-                                                name: "model",
-                                                rawName: "v-model",
-                                                value:
-                                                  _vm.req.subjects[index]
-                                                    .classrooms.slots[iii],
-                                                expression:
-                                                  "req.subjects[index].classrooms.slots[iii]"
-                                              }
-                                            ],
                                             staticClass: "form-check-input",
                                             attrs: {
                                               type: "checkbox",
                                               name: "slot" + slot.id + "-" + ii,
                                               id: "slot" + slot.id + "-" + ii
                                             },
-                                            domProps: {
-                                              value: slot.id,
-                                              checked: Array.isArray(
-                                                _vm.req.subjects[index]
-                                                  .classrooms.slots[iii]
-                                              )
-                                                ? _vm._i(
-                                                    _vm.req.subjects[index]
-                                                      .classrooms.slots[iii],
-                                                    slot.id
-                                                  ) > -1
-                                                : _vm.req.subjects[index]
-                                                    .classrooms.slots[iii]
-                                            },
-                                            on: {
-                                              change: function($event) {
-                                                var $$a =
-                                                    _vm.req.subjects[index]
-                                                      .classrooms.slots[iii],
-                                                  $$el = $event.target,
-                                                  $$c = $$el.checked
-                                                    ? true
-                                                    : false
-                                                if (Array.isArray($$a)) {
-                                                  var $$v = slot.id,
-                                                    $$i = _vm._i($$a, $$v)
-                                                  if ($$el.checked) {
-                                                    $$i < 0 &&
-                                                      _vm.$set(
-                                                        _vm.req.subjects[index]
-                                                          .classrooms.slots,
-                                                        iii,
-                                                        $$a.concat([$$v])
-                                                      )
-                                                  } else {
-                                                    $$i > -1 &&
-                                                      _vm.$set(
-                                                        _vm.req.subjects[index]
-                                                          .classrooms.slots,
-                                                        iii,
-                                                        $$a
-                                                          .slice(0, $$i)
-                                                          .concat(
-                                                            $$a.slice($$i + 1)
-                                                          )
-                                                      )
-                                                  }
-                                                } else {
-                                                  _vm.$set(
-                                                    _vm.req.subjects[index]
-                                                      .classrooms.slots,
-                                                    iii,
-                                                    $$c
-                                                  )
-                                                }
-                                              }
-                                            }
+                                            domProps: { value: slot.id }
                                           }),
                                           _vm._v(" "),
                                           _c(

@@ -74,12 +74,12 @@
                                 <label class="form-label">Please select Classrooms</label>
                                 <div v-for="(classroom, ii) in classrooms" :key="classroom.id">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" :id="'classroom'+classroom.id" v-model="req.subjects[index].classrooms.rooms" :value="classroom.id" @change="makeSlots()">
+                                        <input class="form-check-input" type="checkbox" :id="'classroom'+classroom.id" v-model="req.subjects[index].classrooms" :value="classroom.id" @change="makeSlots()">
                                         <label class="form-check-label" :for="'classroom'+classroom.id">{{ classroom.classroom_name }}</label>
                                     </div>
 
                                     <div class="form-check" v-for="(slot, iii) in classroom.slts" :key="slot.id">
-                                        <input class="form-check-input" type="checkbox" :name="'slot'+slot.id+'-'+ii" :id="'slot'+slot.id+'-'+ii" v-model="req.subjects[index].classrooms.slots[iii]" :value="slot.id">
+                                        <input class="form-check-input" type="checkbox" :name="'slot'+slot.id+'-'+ii" :id="'slot'+slot.id+'-'+ii" :value="slot.id">
                                         <label class="form-check-label" :for="'slot'+slot.id+'-'+ii">{{ slot.name }} {{ 'slot'+slot.id+'-'+ii }}</label>
                                     </div>
 
@@ -184,10 +184,8 @@ export default {
                     dt: null,
                     total_marks: 100,
                     invigilator: [],
-                    classrooms: {
-                        rooms: [],
-                        slots: [],
-                    }
+                    classrooms: [],
+                    slots: [],
                 };
                 subs.push(s);
             });
