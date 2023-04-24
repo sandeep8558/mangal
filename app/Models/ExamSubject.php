@@ -24,12 +24,12 @@ class ExamSubject extends Model
         return $this->belongsTo("App\Models\Subject");
     }
 
-    public function classroom(){
-        return $this->belongsTo("App\Models\Classroom");
-    }
-
     public function exam_subject_invigilators(){
         return $this->hasMany("App\Models\ExamSubjectInvigilator");
+    }
+
+    public function exam_classrooms(){
+        return $this->hasMany("App\Models\ExamClassroom");
     }
     
 }

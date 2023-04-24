@@ -8,13 +8,12 @@ use App\Models\Staff;
 use App\Models\BatchSession;
 use App\Models\Batch;
 use App\Models\SessionAttendance;
+use App\Models\Examination;
 
 class StaffController extends Controller
 {
 
-
-    public function __construct()
-    {
+    public function __construct(){
         $this->middleware(['auth']);
     }
 
@@ -160,10 +159,87 @@ class StaffController extends Controller
 
         $classrooms = $branch_id = $staff->branch_histories()->latest()->first()->branch->classrooms;
 
-        return view("staff.exam", compact("batches", "today", "staffs", "classrooms"));
+        $exams = Examination::
+        with("exam_students")
+        ->with("exam_batches")
+        ->with("exam_subjects", function($q) {
+            $q->with("exam_subject_invigilators");
+        })
+        ->orderBy("id", "desc")
+        ->simplePaginate(10);
+
+        return view("staff.exam", compact("batches", "today", "staffs", "classrooms", "exams"));
+    }
+
+    public function exam_save(Request $request){
+
+        $exam = Examination::create([
+            "exam_name" => $request->data["exam_name"]
+        ]);
+
+        foreach($request->data["batches"] as $batch){
+            $exam->exam_batches()->create([
+                "batch_id" => $batch
+            ]);
+        }
+
+        foreach($request->data["students"] as $student){
+            $exam->exam_students()->create([
+                "student_course_id" => $student
+            ]);
+        }
+
+        foreach($request->data["subjects"] as $subject){
+            $sub = $exam->exam_subjects()->create([
+                "dt" => $subject["dt"],
+                "total_marks" => $subject["total_marks"],
+                "subject_id" => $subject["subject_id"],
+            ]);
+
+            foreach($subject["invigilator"] as $invi){
+                $sub->exam_subject_invigilators()->create([
+                    "staff_id" => $invi
+                ]);
+            }
+        }
+
+        $e = Examination::
+        with("exam_students")
+        ->with("exam_batches")
+        ->with("exam_subjects", function($q) {
+            $q->with("exam_subject_invigilators");
+        })
+        ->find($exam->id);
+
+        return response()->json($e);
+
+    }
+
+    public function exam_all(Request $request){
+        $exams = Examination::
+        with("exam_students")
+        ->with("exam_batches", function($q){
+            $q->with("batch");
+        })
+        ->with("exam_subjects", function($q) {
+            $q
+            ->with("subject")
+            ->with("exam_subject_invigilators", function($q){
+                $q->with("staff");
+            });
+        })
+        ->orderBy("id", "desc")
+        ->simplePaginate(10);
+
+        return $exams;
+    }
+
+    public function exam_delete(Request $request){
+        return Examination::find($request->exam_id)->delete();
     }
 
     public function result(){
         return view("staff.result");
     }
+
 }

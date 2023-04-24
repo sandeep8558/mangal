@@ -27,6 +27,9 @@ Route::group(['middleware'=>['auth', 'staff']], function(){
 
     Route::get('/mystaff/timetable', [App\Http\Controllers\StaffController::class, 'timetable']);
     Route::get('/mystaff/exam', [App\Http\Controllers\StaffController::class, 'exam']);
+    Route::post('/mystaff/exam/save', [App\Http\Controllers\StaffController::class, 'exam_save']);
+    Route::get('/mystaff/exam/all', [App\Http\Controllers\StaffController::class, 'exam_all']);
+    Route::post('/mystaff/exam/delete', [App\Http\Controllers\StaffController::class, 'exam_delete']);
     Route::get('/mystaff/result', [App\Http\Controllers\StaffController::class, 'result']);
 });
 

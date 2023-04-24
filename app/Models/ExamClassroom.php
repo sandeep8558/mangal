@@ -10,7 +10,7 @@ class ExamClassroom extends Model
     use HasFactory;
 
     protected $fillable = [
-        'examination_id',
+        'exam_subject_id',
         'classroom_id',
         'slots'
     ];

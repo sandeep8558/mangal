@@ -16,7 +16,7 @@ class CreateExamClassroomsTable extends Migration
         Schema::create('exam_classrooms', function (Blueprint $table) {
             $table->id();
 
-            $table->bigInteger('examination_id')->index();
+            $table->bigInteger('exam_subject_id')->index();
             $table->bigInteger('classroom_id')->index();
             $table->text('slots')->nullable();
 
