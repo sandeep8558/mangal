@@ -39,8 +39,6 @@ $(document).ready(()=>{
         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
     });
 
-    
-
 });
 
 
@@ -58,6 +56,7 @@ window.Vue = require('vue');
 import vueDebounce from 'vue-debounce'
 Vue.use(vueDebounce)
 
+import AdminDemo from './components/administrator/Demo.vue';
 import AdminUserManager from './components/administrator/UserManager.vue';
 
 import AdminBootstrapAccreditation from './components/administrator/bootstrap/Accreditation.vue';
@@ -99,6 +98,8 @@ import AdminBatchManagerBatchStudents from './components/administrator/batch_man
 import AdminBatchManagerBatchCourses from './components/administrator/batch_manager/BatchCourses.vue';
 
 import AdminExamResultManagerExam from './components/administrator/exam_result_manager/Exam.vue';
+import AdminExamResultManagerExamBatch from './components/administrator/exam_result_manager/ExamBatch.vue';
+import AdminExamResultManagerExamStudent from './components/administrator/exam_result_manager/ExamStudent.vue';
 
 /* Staff Components */
 import StaffSessionStart from './components/staff/SessionStart.vue';
@@ -109,6 +110,7 @@ import StaffExam from './components/staff/Exam.vue';
 const app = new Vue({
     el: '#app',
     components: {
+        AdminDemo,
         AdminUserManager,
 
         AdminBootstrapAccreditation,
@@ -150,6 +152,8 @@ const app = new Vue({
         AdminBatchManagerBatchCourses,
 
         AdminExamResultManagerExam,
+        AdminExamResultManagerExamBatch,
+        AdminExamResultManagerExamStudent,
 
         /* Staff Components */
         StaffSessionStart,

@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid p-0">
-        <lits-form :formData="formData"></lits-form>
+        <lits-form :formData="formData" @OnChange="change($event)"></lits-form>
     </div>
 </template>
 
@@ -8,7 +8,7 @@
 import LitsForm from '../../form/NewForm.vue'
 export default {
 
-    props: ['id', 'salary_groups'],
+    props: ['id', 'examination_id', 'batches'],
 
     components: {
         LitsForm,
@@ -18,12 +18,12 @@ export default {
         return {
             formData : {
                 id : 0,
-                title : "Examination Manager",
-                formName : "ExaminationForm",
-                model : "Examination",
+                title : "ExamStudent Manager",
+                formName : "ExamStudentForm",
+                model : "ExamStudent",
                 action : "CRUD", /* CRUD | EDIT | SEARCH */
                 method : "",
-                custom_query : [],
+                custom_query : ['examination_id', '==', this.examination_id],
                 with : [],
                 mail : {
                     name : "Sandeep Rathod",
@@ -44,23 +44,43 @@ export default {
                     isLoadMore : true,
                 },
                 display : [
-                    { key : 'exam_name', val : 'Examination Name', type : 'text' },
+                    { key : 'student_course_id', val : 'Student ID', type : 'text' },
+                    { key : 'examination_id', val : 'Exam ID', type : 'text' },
+                     
                 ],
                 elements : [
 
                     {
-                        label : 'Examination Name',
-                        name : 'exam_name',
+                        label : 'Examination ID',
+                        name : 'examination_id',
                         value : '',
                         values : [],
                         ObjectValue : {},
                         options : [],
-                        placeholder : 'Enter Examination Name',
+                        placeholder : 'Please Select Examination ID',
                         type : 'text',
                         validation : 'required',
-                        class : 'col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3',
+                        class : 'col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3',
                         labelClass : '',
-                        hint : 'Please Enter Examination Name',
+                        hint : 'Please Select Examination ID',
+                        error : '',
+                        isError : false,
+                        readonly : false,
+                    },
+
+                    {
+                        label : 'Batch',
+                        name : 'batch_id',
+                        value : '',
+                        values : [],
+                        ObjectValue : {},
+                        options : this.batches,
+                        placeholder : 'Please Select Batch',
+                        type : 'select',
+                        validation : 'required',
+                        class : 'col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-3',
+                        labelClass : '',
+                        hint : 'Please Select Batch',
                         error : '',
                         isError : false,
                         readonly : false,
@@ -76,6 +96,7 @@ export default {
 
         change(e){
             /* console.log(e.target.value); */
+            this.formData.elements[0].value = this.examination_id;
         },
 
         /* getBusinessPlan(){

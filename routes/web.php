@@ -13,6 +13,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('/crud', 'App\Http\Controllers\CrudController');
 Route::post('/crud/showall', [App\Http\Controllers\CrudController::class, 'showall']);
 
+/* CRUD Routes */
+Route::post('/crud/get/grid', [App\Http\Controllers\NewCrudController::class, 'grid']);
+
 
 /* Auth Routes */
 Route::group(['middleware'=>['auth']], function(){
@@ -83,6 +86,9 @@ Route::group(['middleware'=>['auth', 'administrator']], function(){
     Route::post('/administrator/batch_manager/get_students', [App\Http\Controllers\BatchManagerController::class, 'get_students']);
 
     Route::get('/administrator/exam_result_manager/exam', [App\Http\Controllers\ExamResultController::class, 'exam']);
+    Route::get('/administrator/exam_result_manager/exam/{id}/batches', [App\Http\Controllers\ExamResultController::class, 'batches']);
+    Route::get('/administrator/exam_result_manager/exam/{id}/students', [App\Http\Controllers\ExamResultController::class, 'students']);
+
     Route::get('/administrator/exam_result_manager/result', [App\Http\Controllers\ExamResultController::class, 'result']);
 
 });

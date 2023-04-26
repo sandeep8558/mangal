@@ -235,7 +235,7 @@
                         <th :key="elm.name" class="">{{elm.val}}</th>
                     </template>
 
-                    <th  v-if="formData.settings.isAction" style="width:140px;" class="text-right"><p class="p-0 m-0" style="width:140px;">Action</p></th>
+                    <th  v-if="formData.settings.isAction" style="width:240px;" class="text-right"><p class="p-0 m-0" style="width:240px;">Action</p></th>
 
                 </tr>
             </thead>
@@ -261,11 +261,15 @@
                     <td v-if="formData.settings.isAction" class="text-right ">
                         <button @click="editData(item)" class="btn btn-sm shadow-none btn-outline-warning"><i class="fas fa-edit"></i></button>
                         <button @click="deleteData(item.id)" class="btn btn-sm shadow-none btn-outline-danger"><i class="fas fa-trash"></i></button>
+
+                        <a v-if="formData.model=='Examination'" class="btn shadow-none btn-outline-primary btn-sm" :href="'/administrator/exam_result_manager/exam/'+item.id+'/batches'" target="_blank">BATCHES</a>
+                        <a v-if="formData.model=='Examination'" class="btn shadow-none btn-outline-primary btn-sm" :href="'/administrator/exam_result_manager/exam/'+item.id+'/students'" target="_blank">STUDENTS</a>
+                        
                         <a v-if="formData.model=='ProductGroup'" class="btn shadow-none btn-outline-primary btn-sm" :href="'/administrator/products/product/'+item.id" target="_blank"><i class="fas fa-link"></i></a>
                         <a v-if="formData.model=='Supplier'" class="btn shadow-none btn-outline-primary btn-sm" :href="'/purchase/supplier_manager/supplier_bank/'+item.id" target="_blank"><i class="fas fa-piggy-bank"></i></a>
                         <a v-if="formData.model=='Supplier'" class="btn shadow-none btn-outline-primary btn-sm" :href="'/purchase/supplier_manager/supplier_products/'+item.id" target="_blank"><i class="fas fa-boxes"></i></a>
-
                         <a v-if="formData.model=='Employee'" class="btn shadow-none btn-outline-secondary btn-sm" :href="'/hr/employee/'+item.id" target="_blank"><i class="fas fa-user"></i></a>
+
                     </td>
 
                     <!-- <td v-if="formData.model=='Employee'" class="text-right ">
@@ -293,12 +297,12 @@
 </div>
 
 
-
-
 </div>
 </template>
 
 <script>
+
+
 
 export default {
     components: {

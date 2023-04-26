@@ -70,7 +70,9 @@ class CrudController extends Controller
         if(sizeof($with) > 0){
             $query = $query->with($with);
         }
+
         $query = $query->orderBy('id', 'desc')->paginate($request->r)->jsonSerialize();
+        
         return response($query, Response::HTTP_OK);
     }
 
