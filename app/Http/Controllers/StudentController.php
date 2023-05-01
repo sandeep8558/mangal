@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     public function student(){
-        return "Student Login";
+        return view("student.index");
     }
 }

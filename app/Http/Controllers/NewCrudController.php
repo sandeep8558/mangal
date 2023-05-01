@@ -9,6 +9,10 @@ use Auth;
 class NewCrudController extends Controller
 {
 
+    public function __construct(){
+        $this->middleware(['auth']);
+    }
+
     public function store(Request $request){
         
         $elements = json_decode($request->elements);
