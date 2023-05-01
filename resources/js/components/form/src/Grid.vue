@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid p-3">
         
-        <div class="row border-bottom mb-5 p-0">
+        <div class="row border-bottom mb-3 p-0">
             <div class="col-auto mb-3">
                 <select class="form-select" aria-label="Default select example" v-model="pagination.rows" @change="rowsChange()">
                     <option value="1">1</option>
@@ -59,8 +59,9 @@
                     </td>
                     
                     <td class="text-right">
-                        <button @click="editData(item)" class="btn btn-sm shadow-none btn-outline-warning"><i class="fas fa-edit"></i></button>
-                        <button @click="deleteData(item.id)" class="btn btn-sm shadow-none btn-outline-danger"><i class="fas fa-trash"></i></button>
+                        <button @click="editRow(data)" class="btn btn-sm shadow-none btn-outline-warning"><i class="fas fa-edit"></i></button>
+                        <button @click="deleteRow(data.id)" class="btn btn-sm shadow-none btn-outline-danger"><i class="fas fa-trash"></i></button>
+                        <a class="btn btn-sm mr-1" :class="[(btn.class)]" target="_blank" v-for="(btn, index) in Buttons" :key="index" :href="buttonLinkWithVaribles(btn.link, data)">{{ btn.text }}</a>
                     </td>
                 </tr>
             </tbody>
@@ -74,6 +75,7 @@
 </template>
 
 <script>
+
 export default {
     
     components: {},
@@ -99,7 +101,7 @@ export default {
 
 
     /* Properties */
-    props: ['GridData'],
+    props: ['GridData', 'myForm', 'Buttons'],
 
 
     /* All methods goes here */
@@ -153,6 +155,48 @@ export default {
             }
         },
 
+        deleteRow(id){
+            
+            this.$swal.fire({
+                title: 'Do you want to delete the row?',
+                showCancelButton: true,
+                confirmButtonText: 'Delete',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let files = [];
+                    this.myForm.forEach(item => {
+                        if(item.type == "file"){
+                            files.push(item.name);
+                        }
+                    });
+                    let url = '/crud/delete';
+                    window.axios.post(url, {id:id, model:this.GridData.Model, files: files}).then(res => {
+                        this.rowsChange();
+                        this.$swal.fire('Deleted!', '', 'success');
+                    });
+                    
+                }
+            });
+
+            
+        },
+
+        editRow(data){
+            this.$root.$emit("OnEditRow", data);
+        },
+
+        buttonLinkWithVaribles(myString, data){
+            let arr = myString.match(/{([^}]+)}/g);
+            if(arr == null){
+                return myString;
+            }
+            arr = myString.match(/{([^}]+)}/g).map(res => res.replace(/{|}/g , ''));
+            for(let i=0; i<arr.length; i++){
+                myString = myString.replace(new RegExp('{' + arr[i] + '}', 'gi'), data[arr[i]]);
+            }
+            return myString;
+        },
+
     },
 
 
@@ -160,6 +204,10 @@ export default {
 
     created(){
         this.getGridData();
+
+        this.$root.$on("OnAdd", () => {
+            this.rowsChange();
+        });
     },
 
 }

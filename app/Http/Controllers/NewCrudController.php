@@ -4,9 +4,105 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Auth;
 
 class NewCrudController extends Controller
 {
+
+    public function store(Request $request){
+        
+        $elements = json_decode($request->elements);
+        $data = [];
+        foreach($elements as $elm){
+            $data[$elm->name] = $elm->validation;
+        }
+
+        /* Validation */
+        $is = $request->validate($data);
+
+        /* If Validated */
+        $input = $request->all();
+
+        if(!isset($input['id'])){
+            $input["id"] = 0;
+        }
+
+        if(isset($input["password"])){
+            $input["password"] = bcrypt($input["password"]);
+        }
+        if(!isset($input["user_id"])){
+            $input["user_id"] = Auth::id();
+        }
+
+        /* File upload and delete */
+        foreach($input as $k=>$v){
+            if(gettype($v) == 'object'){
+                if($file = $request->file($k)){
+                    $name = time().'_'.mt_rand(100000,999999).'_'.$file->getClientOriginalName();
+                    $file->move($input["model"], $name);
+                    $input[$k] = "/".$input["model"]."/".$name;
+                    if($input['id'] != 0){
+                        $model_name = '\\App\\Models\\'.$request->model;
+                        $model = new $model_name;
+                        $fl = $model->find($input["id"])[$k];
+                        if($fl != null || $fl != ""){
+                            if(file_exists(substr($fl, 1))){
+                                unlink(substr($fl, 1));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        if($input['id'] == 0){
+            $model_name = '\\App\\Models\\'.$request->model;
+            $model = new $model_name;
+            $crud = $model->create($input);
+            return $crud;
+        } else {
+            $model_name = '\\App\\Models\\'.$request->model;
+            $model = new $model_name;
+            $crud = $model->find($input["id"])->update($input);
+            return $crud;
+        }
+
+        return $request;
+    }
+
+    public function delete(Request $request){
+
+        $input = $request->all();
+
+        foreach($input['files'] as $file){
+            $model_name = '\\App\\Models\\'.$request->model;
+            $model = new $model_name;
+            $fl = $model->find($request->id)[$file];
+
+            if($fl != null || $fl != ""){
+                if(file_exists(substr($fl, 1))){
+                    unlink(substr($fl, 1));
+                }
+            }
+        }
+
+        $model_name = '\\App\\Models\\'.$request->model;
+        $model = new $model_name;
+
+        $model->find($request->id)->delete();
+        return response()->json("ok", Response::HTTP_OK);
+    }
+
+    public function fetch(Request $request){
+        $model_name = '\\App\\Models\\'.$request->model;
+        $model = new $model_name;
+        if($request->link == null){
+            return $model->get([$request->value . ' as value', $request->text . ' as text']);
+        } else {
+            return $model->where($request->link, $request->link_value)->get([$request->value . ' as value', $request->text . ' as text']);
+        }
+        
+    }
     
     public function grid(Request $request){
 

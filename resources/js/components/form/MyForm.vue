@@ -1,16 +1,16 @@
 <template>
     <div>
         <form-leena-header v-if="ShowHeader" :HeaderTitle="HeaderTitle" :HeaderBtnText="HeaderBtnText" @OnShowHide="showHideForm($event)"></form-leena-header>
-        <form-leena-form v-if="ShowForm" :myForm="myForm"></form-leena-form>
-        <form-leena-grid v-if="ShowGrid" :GridData="GridData"></form-leena-grid>
+        <form-leena-form v-if="ShowForm" :myForm="myForm" :Model="GridData.Model"></form-leena-form>
+        <form-leena-grid v-if="ShowGrid" :GridData="GridData" :myForm="myForm" :Buttons="GridData.Buttons"></form-leena-grid>
     </div>
 </template>
 
 <script>
 
-import FormLeenaGrid from "./src/Grid.vue"
-import FormLeenaForm from "./src/Form.vue"
-import FormLeenaHeader from "./src/Header.vue"
+import FormLeenaGrid from "./src/Grid.vue";
+import FormLeenaForm from "./src/Form.vue";
+import FormLeenaHeader from "./src/Header.vue";
 
 export default {
     
@@ -47,6 +47,7 @@ export default {
                 With: [],
                 Where: [],
                 WhereIn: [],
+                Reload: false,
             },
         };
     },
@@ -54,15 +55,25 @@ export default {
 
     /* All methods goes here */
     methods: {
+
         showHideForm(e){
             this.ShowForm = e;
-        }
+        },
+
     },
 
 
     /* Lifecycle Hooks */
 
     created(){
+
+        this.$root.$on("OnEditRow", (data)=>{
+            this.ShowForm = true;
+            setTimeout(()=> {
+                this.$root.$emit("FillForm", data);
+            } ,100);
+            
+        });
 
         if('ShowHeader' in this.myFormData){
             this.ShowHeader = this.myFormData.ShowHeader;

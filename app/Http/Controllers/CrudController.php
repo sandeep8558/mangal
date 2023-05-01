@@ -143,6 +143,7 @@ class CrudController extends Controller
             if(isset($input["password"])){
                 $input["password"] = bcrypt($input["password"]);
             }
+            
             foreach($input as $k => $v){
                 if(gettype($v) == "object"){
                     if($file = $request->file($k)){
@@ -162,6 +163,7 @@ class CrudController extends Controller
                     }
                 }
             }
+
             if( $input["id"] == 0){
                 if(!isset($input["user_id"])){
                     $input["user_id"] = Auth::id();

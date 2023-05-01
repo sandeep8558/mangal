@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
 
-            $table->set('role', ['Staff', 'Student', 'Administrator'])->default('Staff');
+            $table->set('role', ['Staff', 'Faculty', 'Student', 'Administrator'])->default('Student');
             $table->set('status', ['Active', 'Non-Active', 'Block', 'Hold', 'Discontinue'])->default('Active');
 
             $table->string('api_token', 80)->unique()->nullable();

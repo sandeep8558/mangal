@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Auth;
 
-class Staff
+class Student
 {
     /**
      * Handle an incoming request.
@@ -18,7 +18,7 @@ class Staff
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check()){
-            if(Auth::user()->isStaff()){
+            if(Auth::user()->isStudent()){
                 return $next($request);
             } else {
                 //Auth::logout();

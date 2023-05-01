@@ -8,18 +8,24 @@ Route::get('/notify/{title}/{msg}', [App\Http\Controllers\NotificationController
 
 Auth::routes(['register' => false]);
 
-/* Framework Routes */
+/* Old CRUD Framework Routes */
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/crud', 'App\Http\Controllers\CrudController');
 Route::post('/crud/showall', [App\Http\Controllers\CrudController::class, 'showall']);
 
-/* CRUD Routes */
+/* New CRUD Routes */
 Route::post('/crud/get/grid', [App\Http\Controllers\NewCrudController::class, 'grid']);
+Route::post('/crud/store', [App\Http\Controllers\NewCrudController::class, 'store']);
+Route::post('/crud/delete', [App\Http\Controllers\NewCrudController::class, 'delete']);
+Route::post('/crud/fetch', [App\Http\Controllers\NewCrudController::class, 'fetch']);
 
 
 /* Auth Routes */
 Route::group(['middleware'=>['auth']], function(){
 });
+/* Auth Routes End Here */
+
+
 
 /* Staff Routes */
 Route::group(['middleware'=>['auth', 'staff']], function(){
@@ -27,7 +33,6 @@ Route::group(['middleware'=>['auth', 'staff']], function(){
     Route::post('/mystaff/check_batch_session', [App\Http\Controllers\StaffController::class, 'check_batch_session']);
     Route::post('/mystaff/update_attendance', [App\Http\Controllers\StaffController::class, 'update_attendance']);
     Route::post('/mystaff/table_update', [App\Http\Controllers\StaffController::class, 'table_update']);
-
     Route::get('/mystaff/timetable', [App\Http\Controllers\StaffController::class, 'timetable']);
     Route::get('/mystaff/exam', [App\Http\Controllers\StaffController::class, 'exam']);
     Route::post('/mystaff/exam/save', [App\Http\Controllers\StaffController::class, 'exam_save']);
@@ -35,6 +40,7 @@ Route::group(['middleware'=>['auth', 'staff']], function(){
     Route::post('/mystaff/exam/delete', [App\Http\Controllers\StaffController::class, 'exam_delete']);
     Route::get('/mystaff/result', [App\Http\Controllers\StaffController::class, 'result']);
 });
+/* Staff Routes Ends Here */
 
 
 
@@ -92,9 +98,20 @@ Route::group(['middleware'=>['auth', 'administrator']], function(){
     Route::get('/administrator/exam_result_manager/result', [App\Http\Controllers\ExamResultController::class, 'result']);
 
 });
+/* Administrator Routes Ends Here */
 
 
-/* Customer Routes */
-Route::group(['middleware'=>['auth', 'customer']], function(){
-    Route::get('/customer', [App\Http\Controllers\WebsiteController::class, 'welcome']);
+
+/* Faculty Routes */
+Route::group(['middleware'=>['auth', 'faculty']], function(){
+    Route::get('/faculty', [App\Http\Controllers\FacultyController::class, 'faculty']);
 });
+/* Faculty Routes Ends Here */
+
+
+
+/* Student Routes */
+Route::group(['middleware'=>['auth', 'student']], function(){
+    Route::get('/student', [App\Http\Controllers\StudentController::class, 'student']);
+});
+/* Student Routes Ends Here */

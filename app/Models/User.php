@@ -68,8 +68,15 @@ class User extends Authenticatable
         return false;
     }
 
-    public function isCustomer(){
-        if(($this->role == 'Customer' && $this->status == 'Active')){
+    public function isFaculty(){
+        if(($this->role == 'Faculty' && $this->status == 'Active')){
+            return true;
+        }
+        return false;
+    }
+
+    public function isStudent(){
+        if(($this->role == 'Student' && $this->status == 'Active')){
             return true;
         }
         return false;

@@ -103,6 +103,7 @@ export default {
                             { key : 'Select Role', value : '' },
                             { key : 'Administrator', value : 'Administrator' },
                             { key : 'Staff', value : 'Staff' },
+                            { key : 'Faculty', value : 'Faculty' },
                             { key : 'Student', value : 'Student' },
                         ],
                         placeholder : 'Please Select Role',

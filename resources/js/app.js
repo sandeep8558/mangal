@@ -47,14 +47,12 @@ $(document).ready(()=>{
 
 
 
-
-
-
-
-
 window.Vue = require('vue');
 import vueDebounce from 'vue-debounce'
 Vue.use(vueDebounce)
+
+import VueSweetalert2 from 'vue-sweetalert2';
+Vue.use(VueSweetalert2);
 
 import AdminDemo from './components/administrator/Demo.vue';
 import AdminUserManager from './components/administrator/UserManager.vue';
